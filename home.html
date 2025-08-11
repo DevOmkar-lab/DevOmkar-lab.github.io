@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGROW</title>
+  <link rel="stylesheet" href="home.css" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-logo">AGROW</div>
+
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search..." aria-label="Search through site content" />
+    </div>
+
+    <div class="navbar-links">
+      <a href="Product.html">PRODUCT</a>
+      <a href="#">FASHION</a>
+      <a href="#">CART</a>
+      <a href="#">SUPPORT</a>
+    </div>
+
+    <button class="navbar-button" id="sign-in-btn">Sign In</button>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="image-container">
+    <img src="images/explore.png" alt="Explore latest fashion collections" />
+  </section>
+
+  <!-- Our Brands -->
+  <section class="brand-text">
+    <p>Our Brands</p>
+  </section>
+
+  <section class="brand-image-container">
+    <img src="images/Brands.png" alt="Our popular fashion brands" />
+  </section>
+
+  <!-- New Arrivals Section -->
+  <section class="new-arrivals">
+    <h2>NEW ARRIVALS</h2>
+    <div class="arrival-items">
+      <div class="arrival-item">
+        <img src="images/Shirt1.jpg" alt="New Hoodie Collection" />
+        <h3>Hoodies & Sweatshirts</h3>
+        <a href="#">Explore Now! &rarr;</a>
+      </div>
+      <div class="arrival-item">
+        <img src="images/nike.jpg" alt="New Coats and Parkas" />
+        <h3>Coats & Parkas</h3>
+        <a href="#">Explore Now! &rarr;</a>
+      </div>
+      <div class="arrival-item">
+        <img src="images/jeans.jpg" alt="Trendy Tees and T-Shirts" />
+        <h3>Tees & T-Shirts</h3>
+        <a href="#">Explore Now! &rarr;</a>
+      </div>
+      <div class="arrival-item">
+        <img src="images/jeans2.jpg" alt="Stylish Denim Jeans" />
+        <h3>Denim & Jeans</h3>
+        <a href="#">Explore Now! &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sales Banner -->
+  <section class="sales-image-container">
+    <img src="images/Deals.jpg" alt="Limited time fashion sales" />
+  </section>
+
+  <!-- Trending Section -->
+  <section class="Trending">
+    <h2>Trending</h2>
+    <div class="arrival-items">
+      <div class="arrival-item">
+        <img src="images/shoes.jpg" alt="Latest Trending Jackets" />
+        <h3>Jackets</h3>
+        <a href="#">Explore Now! &rarr;</a>
+      </div>
+      <div class="arrival-item">
+        <img src="images/jeans2.jpg" alt="Popular Sneakers" />
+        <h3>Sneakers</h3>
+        <a href="#">Explore Now! &rarr;</a>
+      </div>
+      <div class="arrival-item">
+        <img src="images/cloth.jpg" alt="Trending Backpacks" />
+        <h3>Backpacks</h3>
+        <a href="#">Explore Now! &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Promotion Banner -->
+  <section class="image-container">
+    <img src="images/app.png" alt="Download AGROW mobile app" />
+  </section>
+
+  <!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <img src="images/logo.png" alt="Logo" class="footer-logo" />
+      <p>Subscribe to our newsletter</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Input your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="footer-links">
+      <div>
+        <h4>Company</h4>
+        <a href="#">About us</a>
+        <a href="#">Contact us</a>
+        <a href="#">support</a>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+      </div>
+      <div>
+        <h4>Orders</h4>
+        <a href="#">Share location</a>
+        <a href="#">Order tracking</a>
+        <a href="#">Size guide</a>
+        <a href="#">FAQx</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="#">Terms and condition</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <select class="language-select">
+        <option>English</option>
+        <option>Hindi</option>
+        <option>Spanish</option>
+      </select>
+      <p>&copy; 2025 Brand, Inc. • <a href="#">Privacy</a> • <a href="#">Terms</a> • <a href="#">Sitemap</a></p>
+      <div class="social-icons">
+        <a href="#"><img src="images/twitter.svg" alt="Twitter" /></a>
+        <a href="#"><img src="images/facebook.svg" alt="Facebook" /></a>
+        <a href="#"><img src="images/linkedin.svg" alt="LinkedIn" /></a>
+        <a href="#"><img src="images/youtube.svg" alt="YouTube" /></a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Newsletter Popup -->
+<div class="newsletter-popup" id="newsletterPopup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">×</span>
+    <h2>Join Our Newsletter</h2>
+    <p>Stay updated with our latest news and offers.</p>
+    <input type="email" placeholder="Enter your email" />
+    <button onclick="closePopup()">Subscribe</button>
+  </div>
+</div>
+
+<script src="home.js"></script>
+
+
+</body>
+</html>

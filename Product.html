@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Listing</title>
+  <link rel="stylesheet" href="Product.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="filters">
+      <div class="filter-header">
+        <h2>Filters</h2>
+        <button id="clear-filters">Clear all</button>
+      </div>
+
+      <div class="filter-group">
+        <h3>Salary range</h3>
+        <input type="range" id="minPrice" min="0" max="600" value="20">
+        <input type="range" id="maxPrice" min="0" max="600" value="600">
+        <p>Price: $<span id="minPriceValue">20</span> - $<span id="maxPriceValue">600</span></p>
+      </div>
+
+      <div class="filter-group">
+        <h3>Condition 1</h3>
+        <label><input type="checkbox" class="condition" value="new" /> New</label>
+        <label><input type="checkbox" class="condition" value="used" /> Used</label>
+      </div>
+
+      <div class="filter-group">
+        <h3>Condition 2</h3>
+        <label><input type="checkbox" class="type" value="electronics" /> Electronics</label>
+        <label><input type="checkbox" class="type" value="accessory" /> Accessory</label>
+      </div>
+
+      <div class="filter-group">
+        <h3>Rating</h3>
+        <div class="rating-group">
+          <label><input type="checkbox" class="rating" value="5" /> ⭐⭐⭐⭐⭐</label>
+          <label><input type="checkbox" class="rating" value="4" /> ⭐⭐⭐⭐</label>
+          <label><input type="checkbox" class="rating" value="3" /> ⭐⭐⭐</label>
+          <label><input type="checkbox" class="rating" value="2" /> ⭐⭐</label>
+          <label><input type="checkbox" class="rating" value="1" /> ⭐</label>
+        </div>
+      </div>
+    </aside>
+
+    <main class="products">
+      <div class="search-sort">
+        <input type="text" id="searchInput" placeholder="Search products..." />
+      </div>
+      <div id="productList" class="product-grid">
+        <!-- Product cards will be injected here -->
+      </div>
+    </main>
+  </div>
+
+  <script src="Product.js"></script>
+</body>
+</html>
