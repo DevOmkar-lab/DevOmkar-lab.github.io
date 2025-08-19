@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Quiz Time</h1>
+    <button id="startQuizBtn">Start Quiz</button>
+
+    <div id="quizBox" style="display:none;">
+      <p id="timer">Time Left: 60s</p>
+      <p id="question">Your question will appear here...</p>
+      <input type="text" id="studentName" placeholder="Enter your name" />
+      <input type="text" id="answer" placeholder="Type your answer here" />
+      <br>
+      <button id="timerBtn">Start Timer</button>
+      <button id="checkBtn">Check Answer</button>
+      <button id="nextBtn">Next Quiz</button>
+      <div id="leaderboard" style="display:none;"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
