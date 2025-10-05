@@ -13,7 +13,7 @@ let socHistory = [];
 let dailyEnergyBalance = { generated: 0, consumed: 0 }; 
 
 // Configuration and Color Palette
-const WEATHER_API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"; 
+const WEATHER_API_KEY = "2d1a16338665b741fb4d4b8bacb7f283"; 
 const WEATHER_CITY = "Jaipur, IN";
 
 const COLORS = {
@@ -409,3 +409,4 @@ document.addEventListener('DOMContentLoaded', () => {
         usernameDisplay.textContent = localStorage.getItem("username");
     }
 });
+
