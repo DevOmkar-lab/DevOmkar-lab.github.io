@@ -1,7 +1,7 @@
 // --- 1. CONFIGURATION AND INITIAL SETUP ---
 
 const CHART_HISTORY_SIZE = 30;
-const UPDATE_INTERVAL = 60000; // 1 minute update interval (60000ms)
+const UPDATE_INTERVAL = 6000; // 1 minute update interval (60000ms)
 
 const SOC_MIN = 0.20;
 const SOC_MAX = 0.90;
@@ -312,3 +312,4 @@ document.addEventListener('DOMContentLoaded', () => {
         usernameDisplay.textContent = localStorage.getItem("username");
     }
 });
+
