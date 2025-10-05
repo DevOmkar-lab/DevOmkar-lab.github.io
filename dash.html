@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URJA SYNC Dashboard</title>
+    
+    <link rel="stylesheet" href="dash.css"> 
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="header-left">
+            <div class="logo">URJA SYNC</div>
+            <nav class="tab-navbar">
+                <a href="dash.html" class="nav-tab active">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    Overview
+                </a>
+                <a href="analytics.html" class="nav-tab">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM11 7h2v10h-2zM7 11h2v6H7zM15 9h2v8h-2z"></path></svg>
+                    Analytics
+                </a>
+                <a href="./financial.html" class="nav-tab">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 11c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v3c0 1.66 1.34 3 3 3zM18 13.5V21H6v-7.5h2v6h8v-6h2z"></path></svg>
+                    Financial
+                </a>
+                <a href="#" class="nav-tab" onclick="alert('Maps View for District Geolocation (Phase 4)')">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-1-10H8v2h3v3h2v-3h3v-2h-3V7h-2v3z"></path></svg>
+                    Maps
+                </a>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <div class="system-status-indicator" id="system-status-indicator">
+                <span class="status-dot"></span> <span id="system-status-text">System Online</span>
+            </div>
+            <a href="#" class="icon-btn" onclick="alert('Open User Settings')">⚙️</a>
+            <a href="#" id="logoutBtn" class="icon-btn logout">Logout</a>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        
+        <div class="kpi-cards-primary">
+            <div class="kpi-card-primary solar">
+                <div class="kpi-label">Solar Generation</div>
+                <div class="kpi-value" id="kpi-solar">0 kW</div>
+                <div class="kpi-sub-text">High efficiency</div>
+            </div>
+            <div class="kpi-card-primary wind">
+                <div class="kpi-label">Wind Generation</div>
+                <div class="kpi-value" id="kpi-wind">0 kW</div>
+                <div class="kpi-sub-text">Low Potential</div>
+            </div>
+            <div class="kpi-card-primary battery">
+                <div class="kpi-label">Battery SOC</div>
+                <div class="kpi-value" id="kpi-soc-percent">50%</div>
+                <div class="kpi-sub-text" id="battery-status-text">Idle</div>
+            </div>
+            <div class="kpi-card-primary load">
+                <div class="kpi-label">Current Load Demand</div>
+                <div class="kpi-value" id="kpi-load">0 kW</div>
+                <div class="kpi-sub-text">Peak shaving active</div>
+            </div>
+        </div>
+
+        <div class="row-two-grid">
+            <div class="main-chart-panel panel">
+                <h2>Energy Generation & Consumption (24H)</h2>
+                <div style="height: 400px;">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+
+            <div class="panel weather-card">
+                <h2 class="weather-title">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8.69 2 6 4.69 6 8c0 2.22 1.25 4.16 3.09 5.23C9.03 13.91 9 14 9 14.5c0 1.95 1.57 3.53 3.5 3.5s3.5-1.55 3.5-3.5c0-.5-.03-.59-.09-1.27C16.75 12.16 18 10.22 18 8c0-3.31-2.69-6-6-6zm0 14.5c-1.38 0-2.5-1.12-2.5-2.5 0-.5.03-.59.09-1.27C9.25 10.16 8 8.22 8 8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.22-1.25 4.16-3.09 5.23-.06.68-.09 1.27zM2 19h20v2H2z"></path></svg>
+                    Current Weather
+                </h2>
+                <div class="weather-main-info">
+                    <span id="weather-temp" class="weather-temp">--°C</span>
+                    <div class="weather-condition">Feels Like <span id="weather-feels">--°C</span></div>
+                    <div id="weather-desc" class="weather-desc">Loading...</div>
+                </div>
+                
+                <div class="weather-grid">
+                    <div class="weather-metric">☀️ Solar Irradiance: <span id="weather-irradiance">-- W/m²</span></div>
+                    <div class="weather-metric">💨 Wind Speed: <span id="weather-wind-speed">-- m/s</span></div>
+                    <div class="weather-metric">💧 Humidity: <span id="weather-humidity">--%</span></div>
+                    <div class="weather-metric">☁️ Cloud Cover: <span id="weather-cloud">--%</span></div>
+                    <div class="weather-metric full-width">🧭 Wind Direction: <span id="weather-wind-dir">--°</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row-three-grid">
+            <div class="panel generation-mix-panel">
+                <h2>Current Generation Mix</h2>
+                <div style="height: 180px;">
+                    <canvas id="mixDoughnut"></canvas>
+                </div>
+            </div>
+            
+            <div class="bar-chart-panel panel">
+                <h2>Daily Energy Balance</h2>
+                <div style="height: 180px;">
+                    <canvas id="balanceBarChart"></canvas>
+                </div>
+            </div>
+
+            <div class="panel forecast-panel">
+                <h2>Energy Impact Forecast</h2>
+                <p>Solar Potential: <span class="forecast-status good">Good</span></p>
+                <p>Wind Potential: <span class="forecast-status fair">Fair</span></p>
+                <p>Battery Efficiency: <span class="forecast-status moderate">Moderate</span></p>
+                <p style="margin-top: 15px;">Target Renewable Utilization: <strong style="color:#28a745;"> >85%</strong></p>
+            </div>
+
+            <div class="panel data-source-card">
+                <h2>System Metrics</h2>
+                <p>Current Profile: <strong id="data-source-name">NREL Sample Data</strong></p>
+                <p>Updated: <span id="kpi-timestamp">--</span></p>
+                <button onclick="alert('Implement data upload interface here!')">Change Dataset</button>
+            </div>
+        </div>
+
+        <div class="district-overview-section panel">
+            <div class="section-header">
+                <h2>Rajasthan Districts Energy Network</h2>
+                <div class="status-legend">
+                    <span class="legend-item"><span class="status-dot good"></span> Excellent</span>
+                    <span class="legend-item"><span class="status-dot fair"></span> Good</span>
+                    <span class="legend-item"><span class="status-dot moderate"></span> Fair</span>
+                    <span class="legend-item"><span class="status-dot poor"></span> Poor</span>
+                </div>
+            </div>
+            <div class="district-cards-container" id="district-cards-container">
+                </div>
+    </div>
+
+    <script src="dash.js"></script>
+</body>
+</html>

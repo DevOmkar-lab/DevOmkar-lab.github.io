@@ -1,0 +1,173 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #e6f7ff, #fff6e6);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
+.container {
+  display: flex;
+  width: 90%;
+  max-width: 1100px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 8px 30px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+/* Login Box */
+.login-box {
+  flex: 1;
+  background: #f9fafc;
+  padding: 40px;
+}
+
+.login-box h2 {
+  color: #007acc;
+  margin-bottom: 5px;
+}
+
+.sub {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input, select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #007acc;
+}
+
+button {
+  padding: 12px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #005fa3;
+}
+
+/* Login message styles */
+#loginMessage { min-height: 20px; margin-top: 12px; font-weight: 600; }
+.login-success { color: #16a34a; }
+.login-error { color: #dc3545; }
+
+/* Demo Credentials */
+.demo-credentials {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.demo-credentials span {
+  color: #007acc;
+  font-weight: bold;
+}
+
+/* Info Section */
+.info-box {
+  flex: 1.3;
+  background: url('https://img.freepik.com/free-photo/solar-panels-wind-turbines-field-sunset_181624-591.jpg') center/cover no-repeat;
+  color: #fff;
+  padding: 50px;
+  position: relative;
+}
+
+.info-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 50, 80, 0.7); /* transparent overlay */
+}
+
+.info-box h1, .info-box p, .info-box .feature {
+  position: relative;
+  z-index: 2;
+}
+
+.info-box h1 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.info-box span {
+  color: #ffcc00;
+}
+
+.info-box p {
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.feature {
+  margin-bottom: 25px;
+}
+
+.feature h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.feature p {
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media(max-width: 850px) {
+  .container {
+    flex-direction: column;
+  }
+  .info-box {
+    order: -1;
+    text-align: center;
+  }
+}
+
+
+/* ===== Financial Tab Styles ===== */
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;}
+.summary-card{background:#f8fafc;padding:1rem;border-radius:0.75rem;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.05);}
+.summary-card h3{font-size:1rem;color:#475569;}
+.summary-card .value{font-size:1.5rem;font-weight:bold;color:#16a34a;}
+.summary-card .trend{font-size:0.875rem;color:#64748b;}
+.toggle-btn{background:#e2e8f0;color:#334155;padding:0.5rem 1rem;border-radius:0.5rem;border:none;cursor:pointer;transition:0.2s;}
+.toggle-btn.active{background:#16a34a;color:#fff;}
+.report-table{width:100%;border-collapse:collapse;}
+.report-table th,.report-table td{padding:0.75rem;border-bottom:1px solid #e2e8f0;}
+.report-table th{background:#f1f5f9;font-weight:600;}

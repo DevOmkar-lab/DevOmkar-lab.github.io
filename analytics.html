@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URJA SYNC - Campus Renewable Orchestration</title>
+
+  <link rel="stylesheet" href="dash.css">
+  <link rel="stylesheet" href="analytics.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="top-bar">
+    <div class="header-left">
+  <div class="logo">URJA SYNC</div>
+      <nav class="tab-navbar">
+        <a href="dash.html" class="nav-tab">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          Overview
+        </a>
+        <a href="analytics.html" class="nav-tab active">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM11 7h2v10h-2zM7 11h2v6H7zM15 9h2v8h-2z"></path></svg>
+          Analytics
+        </a>
+        <a href="./financial.html" class="nav-tab">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 11c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v3c0 1.66 1.34 3 3 3zM18 13.5V21H6v-7.5h2v6h8v-6h2z"></path></svg>
+          Financial
+        </a>
+        <a href="#" class="nav-tab" onclick="alert('Maps View for Campuses (Phase 4) Under construction.......')">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-1-10H8v2h3v3h2v-3h3v-2h-3V7h-2v3z"></path></svg>
+          Maps
+        </a>
+      </nav>
+    </div>
+
+    <div class="header-right">
+      <div class="system-status-indicator" id="system-status-indicator">
+        <span class="status-dot"></span> <span id="system-status-text">System Online</span>
+      </div>
+      <a href="#" class="icon-btn" onclick="alert('Open User Settings')">⚙️</a>
+      <a href="#" id="logoutBtn" class="icon-btn logout">Logout</a>
+    </div>
+  </header>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+
+    <!-- KPI Row -->
+    <div class="analytics-header-row">
+      <h1>Campus Renewable Orchestration - Rajasthan Pilot</h1>
+      <div class="kpi-cards-primary">
+        <div class="kpi-card-primary score">
+          <div class="kpi-label">Grid Dependence</div>
+          <div class="kpi-value" id="kpi-grid-dependence">42%</div>
+          <div class="kpi-sub-text">Electricity drawn from grid today</div>
+        </div>
+        <div class="kpi-card-primary insights">
+          <div class="kpi-label">Renewable Utilisation</div>
+          <div class="kpi-value" id="kpi-renewable-utilisation">68%</div>
+          <div class="kpi-sub-text">Solar + Wind self-consumption</div>
+        </div>
+        <div class="kpi-card-primary alerts">
+          <div class="kpi-label">Carbon Savings</div>
+          <div class="kpi-value" id="kpi-carbon-savings">1.2t</div>
+          <div class="kpi-sub-text">Avoided vs baseline</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Insights Section -->
+    <div class="ml-insights-section panel" id="ml-insights-panel">
+      <h2>Campus Energy Insights</h2>
+      <div id="ml-update-status" style="margin-bottom: 20px; font-weight: bold; color: #28a745; display: none;"></div>
+
+      <div class="insight-item" data-insight-id="battery_schedule">
+        <div class="insight-confidence">Forecast: 95% confidence</div>
+        <div class="insight-detail">
+          <p><strong>Battery Charge Strategy:</strong> Delay charging until solar peak (11:00–14:00).</p>
+          <p><em>Recommendation:</em> Avoid early charging to maximise self-consumption.</p>
+        </div>
+        <div class="insight-action">
+          <span class="insight-gain">5% cost reduction</span>
+          <button class="btn-apply" data-action="apply-battery">Apply</button>
+        </div>
+      </div>
+
+      <div class="insight-item" data-insight-id="load_shifting">
+        <div class="insight-confidence">Prediction: 90% confidence</div>
+        <div class="insight-detail">
+          <p><strong>Load Shifting:</strong> Schedule HVAC for labs after 2 PM to align with forecasted wind surge.</p>
+          <p><em>Recommendation:</em> Shift non-critical loads into renewable generation window.</p>
+        </div>
+        <div class="insight-action">
+          <span class="insight-gain">8% grid reduction</span>
+          <button class="btn-apply" data-action="apply-load-shift">Apply</button>
+        </div>
+      </div>
+
+      <div class="insight-item" data-insight-id="grid_export">
+        <div class="insight-confidence">Forecast: 85% confidence</div>
+        <div class="insight-detail">
+          <p><strong>Grid Export Opportunity:</strong> Excess 12 kWh predicted between 12–1 PM.</p>
+          <p><em>Recommendation:</em> Export surplus to DISCOM for credits.</p>
+        </div>
+        <div class="insight-action">
+          <span class="insight-gain">Earn feed-in credits</span>
+          <button class="btn-apply" data-action="apply-export">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Charts -->
+    <div class="bottom-analytics-grid">
+      <div class="panel">
+        <h2>Performance Radar Analysis</h2>
+        <div style="height: 300px;">
+          <canvas id="performanceRadarChart"></canvas>
+        </div>
+      </div>
+      <div class="panel system-health-visualization">
+        <h2>System Orchestration View</h2>
+        <div style="height: 300px;">
+          <canvas id="systemHealthChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Anomalies & Recommendations -->
+    <div class="anomaly-recommendation-grid">
+      <div class="panel anomaly-detection">
+        <h2>Anomaly Detection</h2>
+        <div class="anomaly-item">
+          Battery cycles not aligned with forecast. <button class="btn-review review-yellow">Review</button>
+        </div>
+        <div class="anomaly-item">
+          Solar curtailed yesterday due to lack of load scheduling. <button class="btn-review review-green">Review</button>
+        </div>
+      </div>
+      <div class="panel smart-recommendations">
+        <h2>Smart Recommendations</h2>
+        <div class="recommendation-item">
+          Schedule workshops 11 AM–2 PM <button class="btn-apply">Apply</button>
+        </div>
+        <div class="recommendation-item">
+          Export forecast surplus to DISCOM <button class="btn-apply">Apply</button>
+        </div>
+        <div class="recommendation-item">
+          Adjust HVAC setpoints during cloudy afternoons <button class="btn-apply">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="analytics.js" defer></script>
+</body>
+</html>

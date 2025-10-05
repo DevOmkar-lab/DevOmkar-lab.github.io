@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Energy Orchestration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Left: Login Box -->
+    <div class="login-box">
+      <h2>Campus Energy Dashboard</h2>
+      <p class="sub">AI-driven Renewable Energy Orchestration</p>
+
+      <form id="loginForm">
+        <label for="state">Select Campus</label>
+        <select id="state" name="state" required>
+          <option value="">-- Select --</option>
+          <option value="Rajasthan">Rajasthan</option>
+        </select>
+
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter Username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter Password" required>
+
+        <button type="submit">Access Dashboard</button>
+      </form>
+
+      <!-- Inline login message (replaces alert popups) -->
+      <div id="loginMessage" aria-live="polite" style="margin-top:12px;min-height:20px;color:#d9534f;font-weight:600;"></div>
+
+      <div class="demo-credentials">
+        <p><b>Demo Credentials:</b></p>
+        <p>Username: <span>guest</span></p>
+        <p>Password: <span>guest123</span></p>
+      </div>
+    </div>
+
+    <!-- Right: Info Section -->
+    <div class="info-box">
+      <h1>Smarter <span>Campus Energy</span> Management</h1>
+      <p>Move beyond isolated pilots—integrate solar, wind, batteries, and grid into one intelligent platform.</p>
+
+      <div class="feature">
+        <h3>⚡ Challenge</h3>
+        <p>Campuses waste renewable potential due to uncoordinated systems, manual monitoring, and unpredictable weather-driven fluctuations.</p>
+      </div>
+
+      <div class="feature">
+        <h3>💡 Solution</h3>
+        <p>An AI-powered orchestration layer that predicts demand & supply, automates battery scheduling, and recommends load-shifting actions.</p>
+      </div>
+
+      <div class="feature">
+        <h3>🌍 Impact</h3>
+        <p>Maximise renewable utilisation, cut electricity bills, and generate reliable carbon reports—without new hardware investment.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
