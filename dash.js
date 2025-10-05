@@ -1,4 +1,5 @@
 // --- 1. CONFIGURATION AND INITIAL SETUP ---
+// Constants and initial state variables
 const CHART_HISTORY_SIZE = 30; 
 const UPDATE_INTERVAL = 4000; // 4 seconds update interval (4000ms)
         
@@ -12,8 +13,8 @@ let socHistory = [];
 let dailyEnergyBalance = { generated: 0, consumed: 0 }; 
 
 // Configuration and Color Palette
-const WEATHER_WORKER_URL = "https://weather-proxy.omkar.workers.dev"; // Cloudflare Worker URL
-const WEATHER_CITY = "Jaipur, IN";
+const WEATHER_WORKER_URL = "https://weather-proxy.omkar.workers.dev"; // <-- Replace with your Cloudflare Worker URL
+const WEATHER_CITY = "Jaipur";
 
 const COLORS = {
     solar: '#ffc107',    // Yellow
@@ -87,31 +88,32 @@ if (balanceCtx) {
     });
 }
 
-// --- 2. WEATHER FETCH USING CLOUD FLARE WORKER ---
-async function fetchWeatherData() {
-    const apiUrl = `${WEATHER_WORKER_URL}/?city=${WEATHER_CITY}`;
 
+// --- 3. DATA SIMULATION & FETCH LOGIC ---
+
+// ✅ Updated Weather Fetch Function (via Cloudflare Worker)
+async function fetchWeatherData() {
     try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(`${https://weather-proxy.omkar.workers.dev}/?city=${WEATHER_CITY}`);
         if (!response.ok) throw new Error("Weather API request failed");
 
         const data = await response.json();
 
-        const sunrise = new Date(data.sunrise * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-        const sunset = new Date(data.sunset * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-        const irradiance = Math.max(100, 1000 - (data.cloudCover * 10));
+        const sunrise = new Date(data.sunrise * 1000).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+        const sunset = new Date(data.sunset * 1000).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+        const irradiance = Math.max(100, 1000 - (data.cloudCover * 10)); // simple estimation
 
         return {
-            temp: data.temp.toFixed(1),
-            feelsLike: data.feelsLike.toFixed(1),
-            windSpeed: data.windSpeed.toFixed(1),
+            temp: data.temp?.toFixed(1) || 0,
+            feelsLike: data.feelsLike?.toFixed(1) || 0,
+            windSpeed: data.windSpeed?.toFixed(1) || 0,
             irradiance,
-            humidity: data.humidity,
-            cloudCover: data.cloudCover,
-            pressure: data.pressure,
+            humidity: data.humidity || 0,
+            cloudCover: data.cloudCover || 0,
+            pressure: data.pressure || 0,
             sunrise,
             sunset,
-            description: data.description
+            description: data.description || "N/A"
         };
     } catch (error) {
         console.error("Weather fetch error:", error);
@@ -124,7 +126,8 @@ async function fetchWeatherData() {
     }
 }
 
-// --- 3. TELEMETRY SIMULATION ---
+// (Everything below remains exactly as your original code)
+
 function fetchTelemetryData() {
     const soc = Math.random() * (0.95 - 0.15) + 0.15; 
     const load = Math.floor(Math.random() * (25 - 5) + 5); 
@@ -165,7 +168,55 @@ function fetchTelemetryData() {
     };
 }
 
-// --- 4. UI UPDATE FUNCTIONS ---
+function getDistrictDataByCategory() {
+    const districts = [
+        { name: "Jaipur Division", status: "Excellent", type: 'raj' },
+        { name: "Jodhpur Division", status: "Good", type: 'raj' },
+        { name: "Udaipur Division", status: "Fair", type: 'raj' },
+        { name: "Kota Division", status: "Poor", type: 'raj' },
+        { name: "Ajmer Division", status: "Excellent", type: 'raj' },
+        { name: "Bikaner Division", status: "Good", type: 'raj' },
+        { name: "Alwar Zone", status: "Fair", type: 'raj' },
+        { name: "Pali Zone", status: "Excellent", type: 'raj' },
+    ];
+
+    const data = { raj: [], bho: [], jha: [] };
+
+    districts.forEach(district => {
+        const baseGen = district.gen || Math.floor(Math.random() * (200 - 50) + 50);
+        const baseCons = district.cons || Math.floor(Math.random() * (180 - 40) + 40);
+        const baseRel = district.rel || (Math.random() * (0.999 - 0.985) + 0.985) * 100;
+        
+        const gen = baseGen + Math.floor(Math.random() * 20 - 10); 
+        const cons = baseCons + Math.floor(Math.random() * 20 - 10); 
+        const battery = Math.floor(Math.random() * (90 - 20) + 20); 
+        const reliability = baseRel + Math.random() * 0.1 - 0.05;
+        
+        let statusClass = '';
+        switch (district.status) {
+            case 'Excellent': statusClass = 'status-excellent'; break;
+            case 'Good': statusClass = 'status-good'; break;
+            case 'Fair': statusClass = 'status-fair'; break;
+            case 'Poor': statusClass = 'status-poor'; break;
+            default: statusClass = 'status-fair'; break;
+        }
+
+        const processedDistrict = {
+            name: district.name,
+            status: district.status,
+            statusClass: statusClass,
+            generation: Math.max(0, gen),
+            consumption: Math.max(0, cons),
+            batterySOC: battery,
+            reliability: parseFloat(reliability.toFixed(2)),
+        };
+
+        data[district.type].push(processedDistrict);
+    });
+
+    return data;
+}
+
 function updateKpiCards(data) {
     if (document.getElementById('kpi-solar')) {
         document.getElementById('kpi-solar').textContent = `${data.pv_power.toFixed(1)} kW`;
@@ -191,7 +242,8 @@ function updateWeatherCard(data) {
         document.getElementById('weather-wind-speed').textContent = `${data.windSpeed} m/s`;
         document.getElementById('weather-humidity').textContent = `${data.humidity}%`;
         document.getElementById('weather-cloud').textContent = `${data.cloudCover}%`;
-        document.getElementById('weather-wind-dir').textContent = `${data.windDir || 'N/A'}°`;
+        document.getElementById('weather-wind-dir').textContent = `${data.windDir || '-'}°`;
+        
         if(document.getElementById('weather-pressure')) {
              document.getElementById('weather-pressure').textContent = `${data.pressure} hPa`;
         }
@@ -207,6 +259,7 @@ function updateWeatherCard(data) {
 function updateMixChart(data) {
     if (mixDoughnut) {
         const totalLoadOrGen = data.load_demand + data.total_generation || 1; 
+        
         const solarMix = (data.pv_power / totalLoadOrGen) * 100;
         const windMix = (data.wind_power / totalLoadOrGen) * 100;
         const gensetMix = (data.genset_power / totalLoadOrGen) * 100;
@@ -251,59 +304,14 @@ function updateBalanceBarChart() {
     }
 }
 
-// --- 5. DISTRICT CARDS ---
-function getDistrictDataByCategory() {
-    const districts = [
-        { name: "Jaipur Division", status: "Excellent", type: 'raj' },
-        { name: "Jodhpur Division", status: "Good", type: 'raj' },
-        { name: "Udaipur Division", status: "Fair", type: 'raj' },
-        { name: "Kota Division", status: "Poor", type: 'raj' },
-        { name: "Ajmer Division", status: "Excellent", type: 'raj' },
-        { name: "Bikaner Division", status: "Good", type: 'raj' },
-        { name: "Alwar Zone", status: "Fair", type: 'raj' },
-        { name: "Pali Zone", status: "Excellent", type: 'raj' },
-    ];
-
-    const data = { raj: [], bho: [], jha: [] };
-    districts.forEach(district => {
-        const baseGen = district.gen || Math.floor(Math.random() * (200 - 50) + 50);
-        const baseCons = district.cons || Math.floor(Math.random() * (180 - 40) + 40);
-        const baseRel = district.rel || (Math.random() * (0.999 - 0.985) + 0.985) * 100;
-        const gen = baseGen + Math.floor(Math.random() * 20 - 10); 
-        const cons = baseCons + Math.floor(Math.random() * 20 - 10); 
-        const battery = Math.floor(Math.random() * (90 - 20) + 20); 
-        const reliability = baseRel + Math.random() * 0.1 - 0.05;
-        
-        let statusClass = '';
-        switch (district.status) {
-            case 'Excellent': statusClass = 'status-excellent'; break;
-            case 'Good': statusClass = 'status-good'; break;
-            case 'Fair': statusClass = 'status-fair'; break;
-            case 'Poor': statusClass = 'status-poor'; break;
-            default: statusClass = 'status-fair'; break;
-        }
-
-        const processedDistrict = {
-            name: district.name,
-            status: district.status,
-            statusClass: statusClass,
-            generation: Math.max(0, gen),
-            consumption: Math.max(0, cons),
-            batterySOC: battery,
-            reliability: parseFloat(reliability.toFixed(2)),
-        };
-        data[district.type].push(processedDistrict);
-    });
-    return data;
-}
-
 function renderDistrictCards(districtData) {
     const containers = document.querySelectorAll('.district-cards-container');
     const regionKeys = ['raj', 'bho', 'jha']; 
 
     containers.forEach((container, index) => {
-        container.innerHTML = '';
+        container.innerHTML = ''; 
         if (index >= regionKeys.length) return;
+
         const districtsToRender = districtData[regionKeys[index]];
 
         if (districtsToRender) {
@@ -338,39 +346,42 @@ function renderDistrictCards(districtData) {
     });
 }
 
-// --- 6. MAIN DASHBOARD LOOP ---
-async function updateDashboard() {
+function updateDashboard() {
     const mainData = fetchTelemetryData();
-    const weatherData = await fetchWeatherData();
-
-    updateKpiCards(mainData);
-    updateWeatherCard(weatherData); 
-    updateMixChart(mainData);
-    updateTrendChart(mainData);
-    updateBalanceBarChart(); 
-
-    const allDistrictData = getDistrictDataByCategory(); 
-    renderDistrictCards(allDistrictData);
+    fetchWeatherData().then(weatherData => {
+        updateKpiCards(mainData);
+        updateWeatherCard(weatherData); 
+        updateMixChart(mainData);
+        updateTrendChart(mainData);
+        updateBalanceBarChart(); 
+        const allDistrictData = getDistrictDataByCategory(); 
+        renderDistrictCards(allDistrictData);
+    });
 
     setTimeout(updateDashboard, UPDATE_INTERVAL);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     updateDashboard(); 
-
-    const logoutBtn = document.getElementById('logoutBtn');
-    if (logoutBtn) logoutBtn.addEventListener('click', handleLogout);
-
-    const usernameDisplay = document.getElementById('usernameDisplay');
-    if (usernameDisplay && localStorage.getItem("username")) {
-        usernameDisplay.textContent = localStorage.getItem("username");
-    }
 });
 
-// --- 7. LOGOUT FUNCTION ---
 function handleLogout() {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("username");
     sessionStorage.clear();
     window.location.href = "index.html";
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', handleLogout);
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const usernameDisplay = document.getElementById('usernameDisplay');
+    if (usernameDisplay && localStorage.getItem("username")) {
+        usernameDisplay.textContent = localStorage.getItem("username");
+    }
+});
