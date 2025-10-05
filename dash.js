@@ -13,7 +13,7 @@ let socHistory = [];
 let dailyEnergyBalance = { generated: 0, consumed: 0 }; 
 
 // Configuration and Color Palette
-const WEATHER_WORKER_URL = "https://weather-proxy.omkar.workers.dev"; // <-- Replace with your Cloudflare Worker URL
+const WEATHER_WORKER_URL = "https://weather-proxy.omkaragarwal00.workers.dev"; // <-- Replace with your Cloudflare Worker URL
 const WEATHER_CITY = "Jaipur";
 
 const COLORS = {
@@ -385,4 +385,5 @@ document.addEventListener('DOMContentLoaded', () => {
         usernameDisplay.textContent = localStorage.getItem("username");
     }
 });
+
 
