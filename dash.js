@@ -92,9 +92,10 @@ if (balanceCtx) {
 // --- 3. DATA SIMULATION & FETCH LOGIC ---
 
 // ✅ Updated Weather Fetch Function (via Cloudflare Worker)
-async function fetchWeatherData() {
+// ✅ Updated Weather Fetch Function (via Cloudflare Worker)
+async function fetchWeatherData(city = WEATHER_CITY) {
     try {
-        const response = await fetch(`${API}/?city=${WEATHER_CITY}`);
+        const response = await fetch(`${WEATHER_WORKER_URL}?city=${city}`);
         if (!response.ok) throw new Error("Weather API request failed");
 
         const data = await response.json();
@@ -385,5 +386,6 @@ document.addEventListener('DOMContentLoaded', () => {
         usernameDisplay.textContent = localStorage.getItem("username");
     }
 });
+
 
 
