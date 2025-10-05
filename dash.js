@@ -109,7 +109,7 @@ if (balanceCtx) {
 async function fetchWeatherData() {
     try {
         const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${WEATHER_CITY}&appid=${WEATHER_API_KEY}&units=metric`
+            `https://api.openweathermap.org/data/2.5/weather?q=${jaipur}&appid=${2d1a16338665b741fb4d4b8bacb7f283}&units=metric`
         );
         const data = await response.json();
 
@@ -312,4 +312,5 @@ document.addEventListener('DOMContentLoaded', () => {
         usernameDisplay.textContent = localStorage.getItem("username");
     }
 });
+
 
