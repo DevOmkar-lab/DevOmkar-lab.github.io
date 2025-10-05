@@ -94,7 +94,7 @@ if (balanceCtx) {
 // ✅ Updated Weather Fetch Function (via Cloudflare Worker)
 async function fetchWeatherData() {
     try {
-        const response = await fetch(`${https://weather-proxy.omkar.workers.dev}/?city=${WEATHER_CITY}`);
+        const response = await fetch(`${API}/?city=${WEATHER_CITY}`);
         if (!response.ok) throw new Error("Weather API request failed");
 
         const data = await response.json();
@@ -385,3 +385,4 @@ document.addEventListener('DOMContentLoaded', () => {
         usernameDisplay.textContent = localStorage.getItem("username");
     }
 });
+
