@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mudra App - Forgot Password</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    .lotus-bg {
+      background-image:
+        radial-gradient(circle at 15% 15%, hsla(300, 10%, 97%, 0.5) 0%, transparent 20%),
+        radial-gradient(circle at 85% 85%, hsla(300, 10%, 97%, 0.5) 0%, transparent 20%),
+        radial-gradient(circle at 15% 85%, hsla(300, 10%, 97%, 0.5) 0%, transparent 20%),
+        radial-gradient(circle at 85% 15%, hsla(300, 10%, 97%, 0.5) 0%, transparent 20%);
+    }
+    .dark .lotus-bg {
+       background-image:
+        radial-gradient(circle at 15% 15%, hsla(285, 30%, 12%, 0.5) 0%, transparent 20%),
+        radial-gradient(circle at 85% 85%, hsla(285, 30%, 12%, 0.5) 0%, transparent 20%),
+        radial-gradient(circle at 15% 85%, hsla(285, 30%, 12%, 0.5) 0%, transparent 20%),
+        radial-gradient(circle at 85% 15%, hsla(285, 30%, 12%, 0.5) 0%, transparent 20%);
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#9311d4",
+            "background-light": "#f7f6f8",
+            "background-dark": "#1c1022",
+          },
+          fontFamily: {
+            "display": ["Epilogue"]
+          },
+          borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 antialiased">
+<div class="relative flex min-h-screen flex-col justify-center items-center bg-background-light dark:bg-background-dark p-4 lotus-bg">
+<div class="absolute top-6 left-6 flex items-center gap-3">
+<div class="w-8 h-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_319)">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</g>
+<defs>
+<clipPath id="clip0_6_319">
+<rect fill="white" height="48" width="48"></rect>
+</clipPath>
+</defs>
+</svg>
+</div>
+<h1 class="text-xl font-bold text-slate-900 dark:text-white">Mudra App</h1>
+</div>
+<div class="w-full max-w-md mx-auto bg-background-light dark:bg-background-dark/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-800/50 rounded-xl shadow-2xl shadow-primary/10">
+<div class="p-8 md:p-10">
+<div class="text-center">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Forgot Password?</h2>
+<p class="text-slate-600 dark:text-slate-400">
+            No worries, we'll send you reset instructions.
+          </p>
+</div>
+<form class="mt-8 space-y-6">
+<div>
+<label class="sr-only" for="email">Email address</label>
+<input autocomplete="email" class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-black/20 focus:border-primary focus:ring-primary placeholder-slate-400 dark:placeholder-slate-500 py-3 px-4" id="email" name="email" placeholder="Enter your email" required="" type="email"/>
+</div>
+<div>
+<button class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark focus:ring-primary transition-colors duration-200" type="submit">
+              Send Reset Link
+            </button>
+</div>
+</form>
+<div class="text-center mt-6 space-y-3">
+  <p class="text-sm text-slate-600 dark:text-slate-400">Don’t have an account? <a class="font-medium text-primary hover:underline" href="sign_up.html">Sign Up</a></p>
+  <a class="text-sm font-medium text-primary hover:text-primary/90" href="sign_in.html">
+            ← Back to Sign In
+          </a>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

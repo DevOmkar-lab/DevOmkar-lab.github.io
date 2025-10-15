@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NatyaMudra - Mudra Recognition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        primary: "#9311d4",
+        "background-light": "#f7f6f8",
+        "background-dark": "#1c1022",
+      },
+      fontFamily: { display: ["Epilogue"] },
+      borderRadius: { DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px" }
+    },
+  },
+};
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+
+<div class="flex flex-col min-h-screen">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm p-4 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <h1 class="text-2xl font-bold text-gray-900 dark:text-white">NatyaMudra</h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+      <!-- Camera Feed Section -->
+      <div class="flex flex-col gap-4">
+        <div class="relative w-full aspect-video bg-gray-200 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-300 dark:border-gray-700">
+          <!-- Live camera video -->
+          <video id="cameraFeed" class="absolute inset-0 w-full h-full object-cover" autoplay playsinline></video>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 flex items-center gap-2 text-white">
+            <span class="material-symbols-outlined text-lg">videocam</span>
+            <span class="text-sm font-medium">Live Camera Feed</span>
+          </div>
+        </div>
+
+        <!-- Camera Control Buttons -->
+        <div class="flex flex-col gap-2 items-center">
+          <button id="startRecognitionBtn" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 w-full">
+            <span class="material-symbols-outlined mr-2">photo_camera</span> Start Recognition
+          </button>
+          <button id="stopCameraBtn" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-lg text-white bg-red-600 hover:bg-red-700 w-full">
+            <span class="material-symbols-outlined mr-2">videocam_off</span> Stop Camera
+          </button>
+          <button id="switchCameraBtn" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-lg border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 w-full mt-2">
+            <span class="material-symbols-outlined mr-2">flip_camera_android</span> Switch Camera
+          </button>
+        </div>
+      </div>
+
+      <!-- Recognition Result Section -->
+      <div class="bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700/50 rounded-xl shadow-2xl p-6 sm:p-8">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Recognition Result</h2>
+          <div class="flex items-center gap-2 text-green-500">
+            <span class="material-symbols-outlined"> check_circle </span>
+            <span class="font-medium">Match Found</span>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-6">
+          <div class="w-32 h-32 sm:w-40 sm:h-40 flex-shrink-0">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF_qun-4geyktnh64wYvULoNW9ffSNWG6HK_bg_1qkXPVtxXwy9qgJkJc5Fsvx6elPFqysoMV04XesIwg5o578QGhkWxBAE7KgHxM98ALUa1eSATPcsasu2RhOBXusrOso3kImdPXIQjblW_7Nfve-IRUN7rTWyy66L3o7EgQcj7TFP2_EAy5NzkhzouS2hIW_kOCfiZRvdNZd1rWgavs3XojlB3jOHnxig9zsIAWJVjwdHI98EWkug_L0QNbmWS0a9ORIPqoUzRg" alt="Pataka Mudra" class="w-full h-full object-contain">
+          </div>
+          <div class="flex-grow text-center sm:text-left">
+            <h3 class="text-3xl font-bold text-primary">Pataka</h3>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mt-1">"Flag"</p>
+            <p class="mt-4 text-gray-700 dark:text-gray-300">
+              This mudra is used to represent various concepts such as a forest, river, clouds, night, or the act of beginning a dance.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- Camera Script -->
+<script>
+let currentStream = null;
+let usingFrontCamera = true;
+
+const video = document.getElementById('cameraFeed');
+const startBtn = document.getElementById('startRecognitionBtn');
+const stopBtn = document.getElementById('stopCameraBtn');
+const switchBtn = document.getElementById('switchCameraBtn');
+
+async function startCamera() {
+  if (currentStream) currentStream.getTracks().forEach(track => track.stop());
+
+  const constraints = {
+    video: { facingMode: usingFrontCamera ? "user" : "environment", width: {ideal:1280}, height: {ideal:720} },
+    audio: false
+  };
+
+  try {
+    currentStream = await navigator.mediaDevices.getUserMedia(constraints);
+    video.srcObject = currentStream;
+  } catch(err) {
+    console.error("Error accessing camera:", err);
+    alert("Cannot access camera. Allow camera permissions.");
+  }
+}
+
+// Start recognition placeholder
+startBtn.addEventListener('click', () => {
+  alert('Recognition started! Integrate your ML model here.');
+});
+
+// Stop camera
+stopBtn.addEventListener('click', () => {
+  if(currentStream) {
+    currentStream.getTracks().forEach(track => track.stop());
+    video.srcObject = null;
+  }
+});
+
+// Switch camera
+switchBtn.addEventListener('click', () => {
+  usingFrontCamera = !usingFrontCamera;
+  startCamera();
+});
+
+// Start camera on page load
+startCamera();
+</script>
+
+</body>
+</html>

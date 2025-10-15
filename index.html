@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>NatyaMudra</title>
+        <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <script>
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#9311d4",
+                            "background-light": "#f7f6f8",
+                            "background-dark": "#1c1022",
+                        },
+                        fontFamily: {
+                            display: ["Epilogue"],
+                        },
+                        borderRadius: {
+                            DEFAULT: "0.5rem",
+                            lg: "1rem",
+                            xl: "1.5rem",
+                            full: "9999px",
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            /* small helper to enable smooth scrolling for anchor links */
+            html {
+                scroll-behavior: smooth;
+            }
+                    .gradient-text {
+                        background: linear-gradient(90deg, #9311d4, #ff6b6b);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+        </style>
+    </head>
+    <body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200">
+        <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+            <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+                <div class="container mx-auto flex items-center justify-between whitespace-nowrap px-6 py-4">
+                    <div class="flex items-center gap-3">
+                        <svg class="text-primary" fill="none" height="32" viewBox="0 0 48 48" width="32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+                        </svg>
+                        <h1 class="text-2xl font-bold text-slate-900 dark:text-white">NatyaMudra</h1>
+                    </div>
+                    <nav class="hidden md:flex items-center gap-8">
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#mudra">Mudra</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="practice_lock.html">Practice</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="contact_us.html">Contact</a>
+                    </nav>
+                    <div class="flex items-center gap-4">
+                        <div class="relative">
+                                    <button id="avatarBtn" aria-haspopup="true" aria-expanded="false" class="flex items-center justify-center rounded-full w-10 h-10 bg-primary/10 hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+                                        <img alt="User avatar" id="avatarImg" class="rounded-full w-10 h-10 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2LehBbmnOsCJ4DQLV0RsCPEzK2uLdJ_fY1XP9FBeNEtUupJ_prMEBc88m0swIctDOBvkeDCCceQSIZSg3cVHloeJDLCdBbPRLEP3qKV1OmtdgewJw-ojEVv9FFJ8eR4B60p8uiRRct_aZExb-7hRlq_eyr7MgY1NP95YH0xT07bXYwgtVexw8PjfUQXp3to-2hkXWw1a97p4NKMwkzlyNOLUKzf90qvQFscGlvUkIKbuQ4_M-yy6Wtkb96RhMofSdBISQVZn99mg" />
+                                    </button>
+                                    <div id="avatarMenu" class="absolute right-0 mt-2 w-48 bg-background-light dark:bg-background-dark border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg opacity-0 scale-95 transform transition-all duration-150 origin-top-right pointer-events-none">
+                                        <a id="profileLink" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20 hidden" href="../user_profile/code.html">Profile</a>
+                                        <a id="signInLink" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20 cursor-pointer">Sign in</a>
+                                        <a id="signUpLink" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20 cursor-pointer">Sign up</a>
+                                        <a id="signOutLink" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20 cursor-pointer hidden">Sign out</a>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-grow">
+                <!-- Home-->
+                <section id="home" class="relative min-h-[60vh] md:min-h-[75vh] flex items-center justify-center text-center text-white px-6">
+                    <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDA0_MI0_DMfubL9MxlSvsZDCjMrDW7_A85cfdT4qbTomLWGwnl-_Wnznl5PL3tdK1vjXYiLKyABH56pnItHQT0nPX8O80CdYex1pBrU2opBAJvIa_2XYjRGr1UAHnL1gKVeKeELGiXVriXBCx3K865eIxDrXFbThpP51fUVHfdaoplf6_Z8IY5WA8VFBnEuqtQnPVeDFSbSAWdCy9CUFm0wIZmqQQJdrORWB1r5H-d5j6fA_8QgrUiG92l0obHzjrL9FXap0eCGpI");'></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-background-dark/40 to-transparent"></div>
+                    <div class="relative z-10 flex flex-col items-center gap-6 max-w-3xl">
+                        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Discover the Art of Mudras</h1>
+                        <p class="text-base md:text-lg font-light text-slate-200">
+                            Explore the rich heritage of Indian classical dance through NatyaMudra, your personal guide to understanding and practicing the ancient art of mudras. Learn to identify and perform mudras from six major dance forms with our intuitive and culturally inspired app.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="about.html" class="bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105">About</a>
+                            <a href="mudra_s3.html" class="bg-white text-primary font-bold py-3 px-8 rounded-lg">Try Recognition</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Explore Dance Forms -->
+                <section class="py-16 sm:py-24">
+                    <div class="container mx-auto px-6">
+                        <h2 class="text-3xl font-bold text-center mb-12 text-slate-900 dark:text-white">Explore Dance Forms</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <a href="dance_info.html" class="group flex flex-col items-center text-center cursor-pointer">
+                                <div class="w-full aspect-square rounded-xl overflow-hidden mb-4 shadow-lg transition-transform transform group-hover:scale-105">
+                                    <div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjHxtw96URGBHLNk5C7tlyvvLKXaJGJcd4c72KgMaKvAU5msDWYZhMmdMTUDUA3TbCHTwEL0zs0apsRPZb8Zie6yUn_Er1E3-J1bbTnsvI-pOmNmGab6AL_MaNX4DzHW0Qeq9hTcypJmcJ-joBpI4hhtWdjOyDxGaQOJeNSjzH_7lnsyx1QCi0T8bYUc6izhy-kxtgzoL8_CTv-0waD_Kf7O5oHTrN8ChUKxHLjoyQsWptF8mytFe-_PNhieaGkO8Ep3p6AabRvns");'></div>
+                                </div>
+                                <p class="text-lg font-semibold">Bharatanatyam</p>
+                            </a>
+                            <div class="group flex flex-col items-center text-center cursor-pointer">
+                                <div class="w-full aspect-square rounded-xl overflow-hidden mb-4 shadow-lg transition-transform transform group-hover:scale-105">
+                                    <div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACusWYA0XIsNXzGfYlPMwHv2-Ri0aQhhYbNW3V5-1PmtGkIUqpzedtWw1FUVMcwc4JIur1RU7Zpxlj0-kZ3M3v79XrHCUIfd4oRt8PZZjSavN9-Ytn2rjPVfle9bjSBjpVUc2wyDfJvVy8PFC1ok65jpbaEBmE_uv4ZFR2XPV5wihZyj7j__RV3t2lYiV1Rd17JoBNLXF1eseqpcEVBOCqCT0qh-ufOVzUtmUjB4WGiOHIlNyJrNJQlX5TXcxuJKemckGP-waeYaI");'></div>
+                                </div>
+                                <p class="text-lg font-semibold">Kathak</p>
+                            </div>
+                            <div class="group flex flex-col items-center text-center cursor-pointer">
+                                <div class="w-full aspect-square rounded-xl overflow-hidden mb-4 shadow-lg transition-transform transform group-hover:scale-105">
+                                    <div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4y4qeqvim2pFIkCKoEXgVQQUIugBlxb83u9Qj8aoxjFRk16H24lrsQbyQ9BQ_GhqCnIAlgyJ26Eque2lXRaNPb1jRroOOit0_7CUwNZ_jSrlLgumRWDfzofoknRtxwRpKqqM7K5zvqZHuH1Dpmfy2x2m3FW_G4yTA9aidKmepnWUsNgh-5SdgBZtL5U6zZakpmpdhWNRGebtIUUdcppt1fkEI76imL1PXxQKhEJ-JTK0H5eB7ZvdV8IxN4oh7OrXdvqXyIvj53Vs");'></div>
+                                </div>
+                                <p class="text-lg font-semibold">Kuchipudi</p>
+                            </div>
+                            <div class="group flex flex-col items-center text-center cursor-pointer">
+                                <div class="w-full aspect-square rounded-xl overflow-hidden mb-4 shadow-lg transition-transform transform group-hover:scale-105">
+                                    <div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQq7vj5h_qNgYYSbq7E6SsBwQ_EMXh9fo4_YmrPUbwpiHf0BKculF_DUkcANhyIYx7eLmUZMwhlWKFihWIAGaz9yQQOqWztuMUiKeXi2c_gCAktl3_QJ8TwMF_qfQp7zyW3YvElVOh1Pt75g4FPtOEC-chVDpU3atBxyYwzkj1Fer4E71YLcFtiE4hH1oKBDq6BrMQMGMaREierWapwkg9sCC1knWxR_TXZbEf7c__c7A4-y4LCFNUeg4IdwgWwMj2CaRFpHTf-tw");'></div>
+                                </div>
+                                <p class="text-lg font-semibold">Manipuri</p>
+                            </div>
+                            <div class="group flex flex-col items-center text-center cursor-pointer">
+                                <div class="w-full aspect-square rounded-xl overflow-hidden mb-4 shadow-lg transition-transform transform group-hover:scale-105">
+                                    <div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAyWkUlA3P8VgNrX5qCF5oqiR8-m7Oq-gNxNiqNb0uJULZZTKZFUVgvdmpiJVjXPTOVfcbXstFJ7FSNqTGcq28AXpvh2_29w8E94hsk1ZUiWm6fYzwuAEQtNGVIc-74MZ38WZ_mnlTFMm9sHWZf7ZuNeFx0HdOxGDEWrz6LZPAQmqgiVeI7ThJ9R3D2WGKiD45n6vSgz3RhfOJDD4fNnB5zsK-743gUSQFQIv5--SAdVZAbi3M5JEZtm8WEL80W-Zj0iTTX-bwqPEo");'></div>
+                                </div>
+                                <p class="text-lg font-semibold">Mohiniyattam</p>
+                            </div>
+                            <div class="group flex flex-col items-center text-center cursor-pointer">
+                                <div class="w-full aspect-square rounded-xl overflow-hidden mb-4 shadow-lg transition-transform transform group-hover:scale-105">
+                                    <div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCabiCDSIZibqWoDAWWkg2qztgYoW8pCsUVgT3-g99GgKl8fij5Bu8lRo17_RGX25gSMwTf4w-vLA7McZ9JNehiVMO6yJGf-J5xgd3tyvXS3R70ywvYENF7V1r0_IQwJ4UilrewAOgnqAFbigU-oJGPAQgu6ssiXzKHEqGbr3v55usWV5QlNKzFSCilp25BmDXyDvO1QAkU2AJ_j3gsnZsJvJKPQDLwtsNrI9_wLC85KXDd8b8MBQ58X5Xh4KHPdJB0AY5RKzP-dVc");'></div>
+                                </div>
+                                <p class="text-lg font-semibold">Odissi</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About (merged content from about_natyamudra) -->
+                <section id="about" class="container mx-auto px-6 py-16 md:py-24">
+                    <div class="text-center max-w-3xl mx-auto mb-16 md:mb-24">
+                        <h1 class="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-4">The Soul of Dance, <span class="gradient-text">Digitized</span>.</h1>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">NatyaMudra bridges the ancient art of Indian classical dance with modern technology, making the rich heritage of mudras accessible to everyone.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 md:mb-24">
+                        <div class="order-2 md:order-1">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">Cultural Significance of Mudras</h2>
+                            <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">Mudras are the unspoken language of Indian classical dance. These symbolic hand gestures convey complex emotions, narratives, and spiritual ideas, forming the expressive core of performances.</p>
+                            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Our app honors this tradition by focusing on mudras from six major dance forms: Bharatanatyam, Kuchipudi, Odissi, Manipuri, Mohiniyattam, and Kathak, each with its unique gestural vocabulary.</p>
+                        </div>
+                        <div class="order-1 md:order-2">
+                            <div class="relative aspect-square">
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary to-rose-500 rounded-xl transform -rotate-3 transition hover:rotate-0 hover:scale-105 duration-300"></div>
+                                <img alt="A collage of Indian dance mudras" class="relative w-full h-full object-cover rounded-xl shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM60fDiVkMS1YEHr7k3kPA4yj-lOO_RP2QFhxw5Gu1AvcXTk2ZyzjRpVWe7xTvxjyEkzFEyEJB5Bmf-E_B6TnDTgMGXdE8b87wMVirnXh0e7nkFl-X-btGo3bnOj8jCcmfr6DanUT4vVCIlrZmalyGPelUwf3DDPxLxnuW0GCpLaElZ5B0f5IHnmjakCeg_0LegBQ81aA1jOTXhEFWG-VOJN3Wnt1wHqet1xQXOgaRoK4HiFknNk3IMdxDRCl0X_6_OYo3cUzQcZQ"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
+                        <div>
+                            <div class="relative aspect-square">
+                                <div class="absolute inset-0 bg-gradient-to-bl from-primary to-cyan-500 rounded-xl transform rotate-3 transition hover:rotate-0 hover:scale-105 duration-300"></div>
+                                <img alt="Illustration of neural networks and technology" class="relative w-full h-full object-cover rounded-xl shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdlUJDS60iLxTZU5Pt3PNvxNFWx6nHtEsdtq40BdnsoxNh1cp1CVbvWdzkioPYjclCblWr_lAL0eQ8l3SfNgBR5dW1puy2TZFiDPX4fDtULoX8GoPjrwLCM7geTe4TrBrTcpMrqrxq5kN5AQGQxKpnrzLz8PiRRSf5U_uRs2nwf95zR6KH35OIGwDFQfW7DJE8tM-OPTpYUbxEGegtEHXIfAaAmdKJb9d0CqkobpAjYGOjc8-BVEbKG-t5rBsg1PIFc_144xfGslQ"/>
+                            </div>
+                        </div>
+                        <div class="md:text-right">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">The Technology Behind NatyaMudra</h2>
+                            <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">At its core, NatyaMudra is powered by a sophisticated machine learning model. We've trained it on a vast and diverse dataset of mudra images to ensure high accuracy in recognition.</p>
+                            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">The app provides real-time feedback through an intuitive interface, allowing you to capture a gesture and instantly learn about its name, meaning, and cultural context. We are constantly refining our algorithms to expand our database and improve the user experience.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Mudra Recognition (interface v2) -->
+                <!-- Mudra Recognition Play Button (Updated) -->
+<section id="mudra" class="py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl text-center">
+            <h2 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">Recognize Mudras</h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Check your pose in real-time with our camera interface. Compare your pose with the correct mudra overlay.</p>
+        </div>
+
+        <div class="mt-12">
+            <div class="relative aspect-video w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl">
+                <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDb4cVY0-alIlNgS0ADl2HWDecHDvjGl_Xos-lI9ztCLh67Ks73yziM07y_pDiSqlhSDK6rIZO33hN7Q8cDMX3P3DKG682u-Dclu9hoQqfv-uxsoJc6HZB42jZ4SkKrG9LrnpG_pkqU_IloaM5QOgX8SpoSLeh2s2UOvXioZ9IORQ_DUX_a09uS3X-KSS9UdkkjT26e2yQmdvr02i8Hn48osyrqf9jnSPhPMA1ubwloScorBdqku0S_Jk_Yal4xgpXY18ro3UCutIA");'></div>
+                <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+  <!-- Play button link -->
+  <a href="mudra_s3.html" class="relative z-10">
+    <button class="flex h-20 w-20 items-center justify-center rounded-full bg-primary/80 text-white backdrop-blur-sm transition-transform hover:scale-110">
+      <span class="material-symbols-outlined text-5xl">play_arrow</span>
+    </button>
+  </a>
+</div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+                        <div class="mt-16 max-w-2xl mx-auto">
+                            <div class="bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700/50 rounded-xl p-8 shadow-lg">
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Recognized Mudra</h3>
+                                <div class="mt-4">
+                                    <h4 class="text-3xl font-bold text-primary">Ardhapataka Mudra</h4>
+                                    <p class="mt-2 text-base text-gray-600 dark:text-gray-400"><strong>Meaning:</strong> Half-flag. Used to denote things like a knife, tower or horns.</p>
+                                    <p class="mt-1 text-base text-gray-600 dark:text-gray-400"><strong>Associated Dance Form:</strong> Kathak</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-16">
+                            <h3 class="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">Other Dance Forms</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+                                <div class="flex flex-col items-center gap-2 p-4 rounded-lg bg-background-light dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700/50">
+                                    <div class="w-24 h-24 rounded-full overflow-hidden bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGi2nIt5rNuTKAe4qawEDzSmj5koF2hU2qPypBPt8fVFV6kuySyzbG3pBl_mF8zMj22kiBKXTpGLEsqZgSpIDq49gH1kyRhgq8d1lV3ByF-uh5dLOiHrXI8a7XYIXsM80zNOosPLx-s44HmCpnkoyz_J9Iu1qnf3ZD6zDMaf5U_Ht1y4xTQwlD4eeb4ki-N24Ra_C4yXWDXb3mWpTtv8fP00DxBxfeLIScLZF8oBEDhd6_aPEmAfXpMIjfqeTma4tLbI8JQDato08");'></div>
+                                    <p class="font-medium text-center text-gray-800 dark:text-gray-200">Bharatanatyam</p>
+                                </div>
+                                <div class="flex flex-col items-center gap-2 p-4 rounded-lg bg-background-light dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700/50">
+                                    <div class="w-24 h-24 rounded-full overflow-hidden bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGi2nIt5rNuTKAe4qawEDzSmj5koF2hU2qPypBPt8fVFV6kuySyzbG3pBl_mF8zMj22kiBKXTpGLEsqZgSpIDq49gH1kyRhgq8d1lV3ByF-uh5dLOiHrXI8a7XYIXsM80zNOosPLx-s44HmCpnkoyz_J9Iu1qnf3ZD6zDMaf5U_Ht1y4xTQwlD4eeb4ki-N24Ra_C4yXWDXb3mWpTtv8fP00DxBxfeLIScLZF8oBEDhd6_aPEmAfXpMIjfqeTma4tLbI8JQDato08");'></div>
+                                    <p class="font-medium text-center text-gray-800 dark:text-gray-200">Odissi</p>
+                                </div>
+                                <div class="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary/10 border border-primary/20">
+                                    <div class="w-24 h-24 rounded-full overflow-hidden bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGi2nIt5rNuTKAe4qawEDzSmj5koF2hU2qPypBPt8fVFV6kuySyzbG3pBl_mF8zMj22kiBKXTpGLEsqZgSpIDq49gH1kyRhgq8d1lV3ByF-uh5dLOiHrXI8a7XYIXsM80zNOosPLx-s44HmCpnkoyz_J9Iu1qnf3ZD6zDMaf5U_Ht1y4xTQwlD4eeb4ki-N24Ra_C4yXWDXb3mWpTtv8fP00DxBxfeLIScLZF8oBEDhd6_aPEmAfXpMIjfqeTma4tLbI8JQDato08");'></div>
+                                    <p class="font-bold text-center text-primary">Kathak</p>
+                                </div>
+                                <div class="flex flex-col items-center gap-2 p-4 rounded-lg bg-background-light dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700/50">
+                                    <div class="w-24 h-24 rounded-full overflow-hidden bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGi2nIt5rNuTKAe4qawEDzSmj5koF2hU2qPypBPt8fVFV6kuySyzbG3pBl_mF8zMj22kiBKXTpGLEsqZgSpIDq49gH1kyRhgq8d1lV3ByF-uh5dLOiHrXI8a7XYIXsM80zNOosPLx-s44HmCpnkoyz_J9Iu1qnf3ZD6zDMaf5U_Ht1y4xTQwlD4eeb4ki-N24Ra_C4yXWDXb3mWpTtv8fP00DxBxfeLIScLZF8oBEDhd6_aPEmAfXpMIjfqeTma4tLbI8JQDato08");'></div>
+                                    <p class="font-medium text-center text-gray-800 dark:text-gray-200">Kuchipudi</p>
+                                </div>
+                                <div class="flex flex-col items-center gap-2 p-4 rounded-lg bg-background-light dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700/50">
+                                    <div class="w-24 h-24 rounded-full overflow-hidden bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGi2nIt5rNuTKAe4qawEDzSmj5koF2hU2qPypBPt8fVFV6kuySyzbG3pBl_mF8zMj22kiBKXTpGLEsqZgSpIDq49gH1kyRhgq8d1lV3ByF-uh5dLOiHrXI8a7XYIXsM80zNOosPLx-s44HmCpnkoyz_J9Iu1qnf3ZD6zDMaf5U_Ht1y4xTQwlD4eeb4ki-N24Ra_C4yXWDXb3mWpTtv8fP00DxBxfeLIScLZF8oBEDhd6_aPEmAfXpMIjfqeTma4tLbI8JQDato08");'></div>
+                                    <p class="font-medium text-center text-gray-800 dark:text-gray-200">Manipuri</p>
+                                </div>
+                                <div class="flex flex-col items-center gap-2 p-4 rounded-lg bg-background-light dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700/50">
+                                    <div class="w-24 h-24 rounded-full overflow-hidden bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGi2nIt5rNuTKAe4qawEDzSmj5koF2hU2qPypBPt8fVFV6kuySyzbG3pBl_mF8zMj22kiBKXTpGLEsqZgSpIDq49gH1kyRhgq8d1lV3ByF-uh5dLOiHrXI8a7XYIXsM80zNOosPLx-s44HmCpnkoyz_J9Iu1qnf3ZD6zDMaf5U_Ht1y4xTQwlD4eeb4ki-N24Ra_C4yXWDXb3mWpTtv8fP00DxBxfeLIScLZF8oBEDhd6_aPEmAfXpMIjfqeTma4tLbI8JQDato08");'></div>
+                                    <p class="font-medium text-center text-gray-800 dark:text-gray-200">Mohiniyattam</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Practice placeholder -->
+                <section id="practice" class="py-12 bg-gradient-to-b from-transparent to-white/50 dark:to-black/10">
+                    <div class="container mx-auto px-6 text-center">
+                        <h2 class="text-2xl font-bold mb-4">Practice Guide</h2>
+                        <p class="text-gray-600 dark:text-gray-400">Find guided lessons and exercises to practice each mudra with step-by-step instructions and tips.</p>
+                        <div class="mt-6">
+                            <a id="practiceBtn" href="practice_lock.html" class="inline-block bg-primary text-white font-semibold py-3 px-6 rounded-lg transition-transform transform hover:scale-105">Practice</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact placeholder -->
+                <section id="contact" class="py-12">
+                    <div class="container mx-auto px-6 text-center">
+                        <h2 class="text-2xl font-bold mb-4">Contact</h2>
+                        <p class="text-gray-600 dark:text-gray-400">Questions or feedback? Reach out to our cultural team at hello@natyamudra.example</p>
+                        <div class="mt-6">
+                            <a href="contact_us.html" class="inline-block bg-primary text-white font-semibold py-3 px-6 rounded-lg transition-transform transform hover:scale-105">Contact Us</a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="bg-background-light dark:bg-background-dark mt-24">
+                <div class="container mx-auto px-6 py-8 text-center text-gray-600 dark:text-gray-400">
+                    <p>© 2024 NatyaMudra. All Rights Reserved. Preserving Culture Through Technology.</p>
+                </div>
+            </footer>
+        </div>
+                <script>
+    // Mock auth state
+    let isLoggedIn = false; // Change to true to test signed-in state
+
+    const avatarBtn = document.getElementById('avatarBtn');
+    const avatarMenu = document.getElementById('avatarMenu');
+    const signInLink = document.getElementById('signInLink');
+    const signUpLink = document.getElementById('signUpLink');
+    const signOutLink = document.getElementById('signOutLink');
+    const profileLink = document.getElementById('profileLink');
+    const playBtn = document.getElementById('playBtn');
+
+    function updateAuthUI() {
+        if (isLoggedIn) {
+            signInLink.style.display = 'none';
+            signUpLink.style.display = 'none';
+            signOutLink.style.display = 'block';
+            profileLink.style.display = 'block';
+        } else {
+            signInLink.style.display = 'block';
+            signUpLink.style.display = 'block';
+            signOutLink.style.display = 'none';
+            profileLink.style.display = 'none';
+        }
+    }
+
+    // Play button click
+    playBtn.addEventListener('click', () => {
+    // Redirect to the Mudra section of the page
+    window.location.href = 'mudra_s3.html';
+});
+
+    // Toggle avatar menu
+    avatarBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (avatarMenu.classList.contains('opacity-100')) {
+            avatarMenu.classList.remove('opacity-100','scale-100');
+            avatarMenu.classList.add('pointer-events-none');
+        } else {
+            avatarMenu.classList.add('opacity-100','scale-100');
+            avatarMenu.classList.remove('pointer-events-none');
+        }
+    });
+
+    // Close dropdown on outside click
+    document.addEventListener('click', () => {
+        avatarMenu.classList.remove('opacity-100','scale-100');
+        avatarMenu.classList.add('pointer-events-none');
+    });
+
+    // Navigation
+    signInLink.addEventListener('click', () => { window.location.href = 'sign_in.html'; });
+    signUpLink.addEventListener('click', () => { window.location.href = 'sign_up.html'; });
+
+    signOutLink.addEventListener('click', () => {
+        isLoggedIn = false;
+        updateAuthUI();
+    });
+
+    updateAuthUI();
+</script>
+
+            </body>
+        </html>

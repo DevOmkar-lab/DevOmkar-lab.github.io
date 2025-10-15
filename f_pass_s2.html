@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Set New Password - Mudra App</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#9311d4",
+            "background-light": "#f7f6f8",
+            "background-dark": "#1c1022",
+            "foreground-light": "#1c1022",
+            "foreground-dark": "#f7f6f8",
+            "subtle-light": "#e2dbe6",
+            "subtle-dark": "#3a2b42",
+            "placeholder-light": "#7c6189",
+            "placeholder-dark": "#a08da9",
+          },
+          fontFamily: {
+            "display": ["Epilogue", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .bg-motif {
+        background-image: url("data:image/svg+xml,%3Csvg width='52' height='52' viewBox='0 0 52 52' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M26 4.33331V0.000183105L21.6667 4.33331H30.3333L26 0.000183105V4.33331ZM26 52V47.6668L30.3333 52H21.6667L26 47.6668V52ZM4.33331 26H0.000183105L4.33331 21.6668V30.3333L0.000183105 26H4.33331ZM52 26H47.6668L52 30.3333V21.6668L47.6668 26H52Z' fill='%239311d4' fill-opacity='0.05'/%3E%3C/svg%3E");
+    }
+    .dark .bg-motif {
+        background-image: url("data:image/svg+xml,%3Csvg width='52' height='52' viewBox='0 0 52 52' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M26 4.33331V0.000183105L21.6667 4.33331H30.3333L26 0.000183105V4.33331ZM26 52V47.6668L30.3333 52H21.6667L26 47.6668V52ZM4.33331 26H0.000183105L4.33331 21.6668V30.3333L0.000183105 26H4.33331ZM52 26H47.6668L52 30.3333V21.6668L47.6668 26H52Z' fill='%23f7f6f8' fill-opacity='0.05'/%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark antialiased">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center bg-motif p-4">
+<div class="absolute top-6 left-6 flex items-center gap-3">
+<svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_319)">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</g>
+<defs>
+<clipPath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clipPath>
+</defs>
+</svg>
+<h1 class="text-xl font-bold">Mudra App</h1>
+</div>
+<main class="w-full max-w-md">
+<div class="bg-background-light dark:bg-background-dark/50 backdrop-blur-sm border border-subtle-light dark:border-subtle-dark rounded-xl p-8 shadow-2xl shadow-primary/5">
+<div class="text-center">
+<h2 class="text-2xl font-bold text-foreground-light dark:text-foreground-dark">Set New Password</h2>
+<p class="mt-2 text-sm text-placeholder-light dark:text-placeholder-dark">Your new password must be different from previous used passwords.</p>
+</div>
+<form class="mt-8 space-y-6">
+<div class="space-y-2">
+<label class="text-sm font-medium text-foreground-light dark:text-foreground-dark" for="new-password">New Password</label>
+<input class="form-input w-full rounded-lg border-subtle-light dark:border-subtle-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-foreground-light dark:text-foreground-dark placeholder:text-placeholder-light dark:placeholder:text-placeholder-dark" id="new-password" name="new-password" placeholder="Enter your new password" type="password"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium text-foreground-light dark:text-foreground-dark" for="confirm-password">Confirm New Password</label>
+<input class="form-input w-full rounded-lg border-subtle-light dark:border-subtle-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-foreground-light dark:text-foreground-dark placeholder:text-placeholder-light dark:placeholder:text-placeholder-dark" id="confirm-password" name="confirm-password" placeholder="Confirm your new password" type="password"/>
+</div>
+<div>
+<button class="w-full rounded-lg bg-primary py-3 px-4 text-sm font-bold text-white transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark" type="submit">
+              Reset Password
+            </button>
+</div>
+</form>
+</div>
+</main>
+</div>
+
+</body></html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NatyaMudra - Mudra Practice Guide</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            colors: {
+                "primary": "#9311d4",
+                "background-light": "#f7f6f8",
+                "background-dark": "#1c1022",
+            },
+            fontFamily: { "display": ["Epilogue"] },
+            borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+        },
+    },
+};
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
+}
+.locked-content::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(28, 16, 34, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 10;
+    border-radius: 1.5rem;
+}
+.start-practice {
+    cursor: pointer;
+}
+.start-practice.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#1c1022] dark:text-[#f7f6f8]">
+
+<div class="flex flex-col min-h-screen">
+
+<header class="sticky top-0 z-20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<svg class="text-primary size-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+</svg>
+<h1 class="text-2xl font-bold">NatyaMudra</h1>
+</div>
+<div class="flex-1 flex justify-center">
+<div class="hidden md:flex items-center gap-8 font-medium">
+<a class="hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="hover:text-primary transition-colors" href="about.html">About</a>
+<a class="hover:text-primary transition-colors" href="mudra_s3.html">Mudra</a>
+<a class="relative text-primary font-bold group" href="practice_lock.html">
+<span>Practice</span>
+<span class="material-symbols-outlined absolute -top-2 -right-3 text-lg text-primary group-hover:scale-110 transition-transform">lock</span>
+</a>
+<a class="hover:text-primary transition-colors" href="contact_us.html">Contact</a>
+</div>
+</div>
+<button class="md:hidden">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</nav>
+</header>
+
+<main class="flex-grow container mx-auto px-6 py-12">
+<div class="relative">
+<!-- Locked Overlay -->
+<div id="locked-overlay" class="absolute inset-0 flex flex-col items-center justify-center z-20 text-center p-8">
+<span class="material-symbols-outlined text-7xl text-white mb-4">lock</span>
+<h3 class="text-3xl font-bold text-white mb-2">Access Denied</h3>
+<p class="text-lg text-white/80 mb-6 max-w-md">Please sign in or create an account to access the Mudra Practice Guide and unlock your full potential.</p>
+<div class="flex gap-4">
+<a class="bg-primary text-white font-bold py-3 px-8 rounded-full hover:bg-primary/90 transition-colors" href="../sign_in_-_centered_card_2/code.html">Sign In</a>
+<a class="bg-white/20 text-white font-bold py-3 px-8 rounded-full hover:bg-white/30 transition-colors" href="../sign_up_-_centered_card/code.html">Sign Up</a>
+</div>
+</div>
+
+<!-- Locked Content -->
+<div class="locked-content relative">
+<div class="text-center mb-12">
+<h2 class="text-4xl lg:text-5xl font-extrabold text-primary mb-2">Mudra Practice Guide</h2>
+<p class="text-lg text-[#1c1022]/80 dark:text-[#f7f6f8]/80 max-w-3xl mx-auto">Select a dance form to practice its associated mudras. Follow the step-by-step instructions to master each hand gesture.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Example Card -->
+<div class="bg-background-light dark:bg-background-dark rounded-xl shadow-lg overflow-hidden">
+<div class="h-48 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNGtk5EanU33ZBX9TMNPeO0dm4PQKGmDUwjkCQyTeiWLJG7D3MoG04etMS7KVk762cJr8YMeoXFNy-MrdL8PlhdznBHJYOLSuOhqoi1ZUnUhL-oX-M3zCu7rSjv8PmRR2L6ukw1-0nA_lhOf9o8ifpqZUjjQOVOlt12v-jw3LHEKZYfrTpeWTM24wneJU3z1QWtAht8Nv8V3MZfO52aZSPgIk5OFsA4ip3_izA5sJpstXxSfg2xyVgGrN7c9-d0XdC3fFDNkQ7kYk");'></div>
+<div class="p-6">
+<h3 class="text-2xl font-bold mb-2">Bharatanatyam</h3>
+<p class="text-sm text-[#1c1022]/70 dark:text-[#f7f6f8]/70 mb-4">Practice fundamental mudras like Pataka and Tripataka from this classical Tamil Nadu dance form.</p>
+<span class="start-practice font-bold text-primary/50 inline-flex items-center">Start Practice <span class="material-symbols-outlined ml-1">arrow_forward</span></span>
+</div>
+</div>
+<!-- Add more cards here -->
+</div>
+</div>
+
+</main>
+</div>
+
+<script>
+// Dynamic unlock and redirect
+document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.getElementById('locked-overlay');
+    const startButtons = document.querySelectorAll('.start-practice');
+
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+    if (isLoggedIn) {
+        // Hide overlay
+        overlay.style.display = 'none';
+
+        // Enable all start buttons
+        startButtons.forEach(btn => {
+            btn.classList.remove('disabled');
+            btn.addEventListener('click', () => {
+                window.location.href = 'practice.html';
+            });
+        });
+
+        // Auto redirect user to practice page
+        window.location.href = 'practice.html';
+    } else {
+        // Disable buttons for guests
+        startButtons.forEach(btn => {
+            btn.classList.add('disabled');
+            btn.addEventListener('click', () => {
+                alert('Please sign in to start practicing.');
+                window.location.href = '../sign_in_-_centered_card_2/code.html';
+            });
+        });
+    }
+
+
+
+});
+</script>
+
+</body>
+</html>

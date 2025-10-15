@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Epilogue%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>NatyaMudra</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#9311d4",
+              "background-light": "#f7f6f8",
+              "background-dark": "#1c1022",
+            },
+            fontFamily: {
+              display: ["Epilogue"],
+            },
+            borderRadius: { DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
+<div class="flex items-center gap-3">
+<svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+</svg>
+<h1 class="text-2xl font-bold text-gray-900 dark:text-white">NatyaMudra</h1>
+</div>
+<nav class="hidden md:flex items-center justify-center gap-8">
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">About</a>
+<a class="text-sm font-bold text-primary" href="#">Mudra</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Practice</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<button>
+<div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCoOLqJAP2XnBHh4-NbzVjyhb4u8YxMZ9R3XVWTUYm5JjFUPKZDvesNGFDjFtdq0pKtujMBf_o2NpnmaqZ11auQTudLqultMPCqnLSAacd_PWlUvEWPjgTtHSRDt7eOR4xgnZIlhsCpphVETEgLnPxAQQ8AkA7OuY92mGxECm2Ehw--ysHxF_HqtqExZSZ7ztJ1FncFLgN5DCbL93jlAzo5OsXLHeFBDS4MjY1p1hzNUOMnHPIeYohz7VtxBkQYacW3LYVotPkpyPg")'></div>
+</button>
+<div class="absolute right-0 mt-2 w-48 bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+<a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10" href="../user_profile/code.html">Profile</a>
+                    <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10" href="../logout_confirmation/code.html" onclick="(function(){try{localStorage.removeItem('isLoggedIn');localStorage.removeItem('user');sessionStorage.clear();}catch(e){};window.location.href='../logout_confirmation/code.html';return false;})();">Logout</a>
+</div>
+</div>
+<button class="md:hidden text-gray-800 dark:text-gray-200">
+<span class="material-symbols-outlined"> menu </span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="mx-auto max-w-4xl text-center">
+<h2 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">Recognize Mudras</h2>
+<p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                    Check your pose in real-time with our camera interface. Compare your pose with the correct mudra overlay.
+                </p>
+</div>
+<div class="mt-12">
+<div class="relative aspect-video w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDb4cVY0-alIlNgS0ADl2HWDecHDvjGl_Xos-lI9ztCLh67Ks73yziM07y_pDiSqlhSDK6rIZO33hN7Q8cDMX3P3DKG682u-Dclu9hoQqfv-uxsoJc6HZB42jZ4SkKrG9LrnpG_pkqU_IloaM5QOgX8SpoSLeh2s2UOvXioZ9IORQ_DUX_a09uS3X-KSS9UdkkjT26e2yQmdvr02i8Hn48osyrqf9jnSPhPMA1ubwloScorBdqku0S_Jk_Yal4xgpXY18ro3UCutIA");'></div>
+<div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+<button class="flex h-20 w-20 items-center justify-center rounded-full bg-primary/80 text-white backdrop-blur-sm transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-5xl"> play_arrow </span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-16 max-w-2xl mx-auto">
+<div class="bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700/50 rounded-xl p-8 shadow-lg">
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Recognized Mudra</h3>
+<div class="mt-4">
+<h4 class="text-3xl font-bold text-primary">Ardhapataka Mudra</h4>
+<p class="mt-2 text-base text-gray-600 dark:text-gray-400">
+<strong>Meaning:</strong> Half-flag. Used to denote things like a knife, tower or horns.
+                        </p>
+<p class="mt-1 text-base text-gray-600 dark:text-gray-400">
+<strong>Associated Dance Form:</strong> Kathak
+                        </p>
+</div>
+</div>
+</div>
+<div class="mt-16">
+<h3 class="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">Other Dance Forms</h3>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+<div class="flex flex-col items-center gap-2 p-4 rounded-lg bg-background-light dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700/50">
+<div class="w-24 h-24 rounded-full overflow-hidden bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGi2nIt5rNuTKAe4qawEDzSmj5koF2hU2qPypBPt8fVFV6kuySyzbG3pBl_mF8zMj22kiBKXTpGLEsqZgSpIDq49gH1kyRhgq8d1lV3ByF-uh5dLOiHrXI8a7XYIXsM80zNOosPLx-s44HmCpnkoyz_J9Iu1qnf3ZD6zDMaf5U_Ht1y4xTQwlD4eeb4ki-N24Ra_C4yXWDXb3mWpTtv8fP00DxBxfeLIScLZF8oBEDhd6_aPEmAfXpMIjfqeTma4tLbI8JQDato08")'></div>
+<p class="font-medium text-center text-gray-800 dark:text-gray-200">Bharatanatyam</p>
+</div>
+<div class="flex flex-col items-center gap-2 p-4 rounded-lg bg-background-light dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700/50">
+<div class="w-24 h-24 rounded-full overflow-hidden bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGi2nIt5rNuTKAe4qawEDzSmj5koF2hU2qPypBPt8fVFV6kuySyzbG3pBl_mF8zMj22kiBKXTpGLEsqZgSpIDq49gH1kyRhgq8d1lV3ByF-uh5dLOiHrXI8a7XYIXsM80zNOosPLx-s44HmCpnkoyz_J9Iu1qnf3ZD6zDMaf5U_Ht1y4xTQwlD4eeb4ki-N24Ra_C4yXWDXb3mWpTtv8fP00DxBxfeLIScLZF8oBEDhd6_aPEmAfXpMIjfqeTma4tLbI8JQDato08")'></div>
+<p class="font-medium text-center text-gray-800 dark:text-gray-200">Odissi</p>
+</div>
+<div class="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary/10 border border-primary/20">
+<div class="w-24 h-24 rounded-full overflow-hidden bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGi2nIt5rNuTKAe4qawEDzSmj5koF2hU2qPypBPt8fVFV6kuySyzbG3pBl_mF8zMj22kiBKXTpGLEsqZgSpIDq49gH1kyRhgq8d1lV3ByF-uh5dLOiHrXI8a7XYIXsM80zNOosPLx-s44HmCpnkoyz_J9Iu1qnf3ZD6zDMaf5U_Ht1y4xTQwlD4eeb4ki-N24Ra_C4yXWDXb3mWpTtv8fP00DxBxfeLIScLZF8oBEDhd6_aPEmAfXpMIjfqeTma4tLbI8JQDato08")'></div>
+<p class="font-bold text-center text-primary">Kathak</p>
+</div>
+<div class="flex flex-col items-center gap-2 p-4 rounded-lg bg-background-light dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700/50">
+<div class="w-24 h-24 rounded-full overflow-hidden bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGi2nIt5rNuTKAe4qawEDzSmj5koF2hU2qPypBPt8fVFV6kuySyzbG3pBl_mF8zMj22kiBKXTpGLEsqZgSpIDq49gH1kyRhgq8d1lV3ByF-uh5dLOiHrXI8a7XYIXsM80zNOosPLx-s44HmCpnkoyz_J9Iu1qnf3ZD6zDMaf5U_Ht1y4xTQwlD4eeb4ki-N24Ra_C4yXWDXb3mWpTtv8fP00DxBxfeLIScLZF8oBEDhd6_aPEmAfXpMIjfqeTma4tLbI8JQDato08")'></div>
+<p class="font-medium text-center text-gray-800 dark:text-gray-200">Kuchipudi</p>
+</div>
+<div class="flex flex-col items-center gap-2 p-4 rounded-lg bg-background-light dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700/50">
+<div class="w-24 h-24 rounded-full overflow-hidden bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGi2nIt5rNuTKAe4qawEDzSmj5koF2hU2qPypBPt8fVFV6kuySyzbG3pBl_mF8zMj22kiBKXTpGLEsqZgSpIDq49gH1kyRhgq8d1lV3ByF-uh5dLOiHrXI8a7XYIXsM80zNOosPLx-s44HmCpnkoyz_J9Iu1qnf3ZD6zDMaf5U_Ht1y4xTQwlD4eeb4ki-N24Ra_C4yXWDXb3mWpTtv8fP00DxBxfeLIScLZF8oBEDhd6_aPEmAfXpMIjfqeTma4tLbI8JQDato08")'></div>
+<p class="font-medium text-center text-gray-800 dark:text-gray-200">Manipuri</p>
+</div>
+<div class="flex flex-col items-center gap-2 p-4 rounded-lg bg-background-light dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700/50">
+<div class="w-24 h-24 rounded-full overflow-hidden bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGi2nIt5rNuTKAe4qawEDzSmj5koF2hU2qPypBPt8fVFV6kuySyzbG3pBl_mF8zMj22kiBKXTpGLEsqZgSpIDq49gH1kyRhgq8d1lV3ByF-uh5dLOiHrXI8a7XYIXsM80zNOosPLx-s44HmCpnkoyz_J9Iu1qnf3ZD6zDMaf5U_Ht1y4xTQwlD4eeb4ki-N24Ra_C4yXWDXb3mWpTtv8fP00DxBxfeLIScLZF8oBEDhd6_aPEmAfXpMIjfqeTma4tLbI8JQDato08")'></div>
+<p class="font-medium text-center text-gray-800 dark:text-gray-200">Mohiniyattam</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

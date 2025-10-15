@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NatyaMudra - Settings</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#9311d4",
+            "background-light": "#f7f6f8",
+            "background-dark": "#1c1022",
+          },
+          fontFamily: {
+            "display": ["Epilogue"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-black dark:text-white">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-primary/20 dark:border-primary/30 px-6 sm:px-10 py-4">
+<div class="flex items-center gap-3">
+<div class="text-primary size-7">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path></svg>
+</div>
+<h2 class="text-xl font-bold tracking-tight">NatyaMudra</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="mudra_s1.html">Mudra</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="practice.html">Practice</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="../contact_us/code.html">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<button class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDQgi4TyaElOZQ6ewkNBeZM8vj_Bd1ifXfpxsSd7WgWecj6jpEGdd-4m6Kl38zhWWfEQ8b2vnx0s1fA5YmPyCUZdvkqjIuWiPgTR-YvkCCd4Jt4tJabsxQPu-PirHuEY2_yi8FquR25K2fyRGfRszCiID6ByN2U9lBwBkmLddGDBt68ExYngSh-GMyfl5C1M4nlHQwjM-Ed-IcqAko0HRQE0cGjQpInGhf-WlxxmWYSLnF_eBIkcjqeHSEnYj9hl1U97XoKEEo0prI");'></button>
+<div class="absolute right-0 mt-2 w-48 bg-background-light dark:bg-background-dark border border-primary/20 dark:border-primary/30 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+<a class="block px-4 py-2 text-sm hover:bg-primary/10" href="../user_profile/code.html">Profile</a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10" href="../logout_confirmation/code.html" onclick="(function(){try{localStorage.removeItem('isLoggedIn');localStorage.removeItem('user');sessionStorage.clear();}catch(e){};window.location.href='../logout_confirmation/code.html';return false;})();">Logout</a>
+</div>
+</div>
+<button class="md:hidden text-black dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-1 w-full max-w-5xl mx-auto py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+<div class="mb-8">
+<h1 class="text-4xl font-bold tracking-tight">Settings</h1>
+<p class="mt-2 text-black/60 dark:text-white/60">Manage your app preferences, notifications, privacy, and account security.</p>
+</div>
+<div class="space-y-12">
+<section>
+<h2 class="text-2xl font-bold border-b border-primary/20 dark:border-primary/30 pb-3 mb-6">App Preferences</h2>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 rounded-lg bg-primary/5 dark:bg-primary/10">
+<div>
+<h3 class="font-medium">Language</h3>
+<p class="text-sm text-black/60 dark:text-white/60">Choose your preferred language for the app interface.</p>
+</div>
+<div class="flex items-center gap-2 text-black/80 dark:text-white/80">
+<span>English</span>
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-lg bg-primary/5 dark:bg-primary/10">
+<div>
+<h3 class="font-medium">Theme</h3>
+<p class="text-sm text-black/60 dark:text-white/60">Select the theme for the app interface.</p>
+</div>
+<div class="flex items-center gap-2 text-black/80 dark:text-white/80">
+<span>Light</span>
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-2xl font-bold border-b border-primary/20 dark:border-primary/30 pb-3 mb-6">Notifications</h2>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 rounded-lg bg-primary/5 dark:bg-primary/10">
+<div>
+<h3 class="font-medium">App Notifications</h3>
+<p class="text-sm text-black/60 dark:text-white/60">Receive notifications for new mudras, updates, and practice reminders.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-black/20 peer-focus:outline-none rounded-full peer dark:bg-white/20 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-4 rounded-lg bg-primary/5 dark:bg-primary/10">
+<div>
+<h3 class="font-medium">Email Notifications</h3>
+<p class="text-sm text-black/60 dark:text-white/60">Get email notifications for important updates and announcements.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-black/20 peer-focus:outline-none rounded-full peer dark:bg-white/20 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-2xl font-bold border-b border-primary/20 dark:border-primary/30 pb-3 mb-6">Privacy</h2>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 rounded-lg bg-primary/5 dark:bg-primary/10">
+<div>
+<h3 class="font-medium">Profile Visibility</h3>
+<p class="text-sm text-black/60 dark:text-white/60">Control who can see your practice progress and achievements.</p>
+</div>
+<div class="flex items-center gap-2 text-black/80 dark:text-white/80">
+<span>Public</span>
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-lg bg-primary/5 dark:bg-primary/10">
+<div>
+<h3 class="font-medium">Data Sharing</h3>
+<p class="text-sm text-black/60 dark:text-white/60">Manage your data sharing preferences.</p>
+</div>
+<div class="flex items-center gap-2 text-black/80 dark:text-white/80">
+<span>Limited</span>
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-2xl font-bold border-b border-primary/20 dark:border-primary/30 pb-3 mb-6">Account Security</h2>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 rounded-lg bg-primary/5 dark:bg-primary/10">
+<div>
+<h3 class="font-medium">Change Password</h3>
+<p class="text-sm text-black/60 dark:text-white/60">Change your password to keep your account secure.</p>
+</div>
+      <a href="f_pass.html" class="inline-block px-4 py-2 text-sm font-medium rounded-lg bg-primary/20 dark:bg-primary/30 hover:bg-primary/30 dark:hover:bg-primary/40 transition-colors">Change</a>
+</div>
+<div class="flex items-center justify-between p-4 rounded-lg bg-primary/5 dark:bg-primary/10">
+<div>
+<h3 class="font-medium">Connected Devices</h3>
+<p class="text-sm text-black/60 dark:text-white/60">Manage your connected devices.</p>
+</div>
+<button class="px-4 py-2 text-sm font-medium rounded-lg bg-primary/20 dark:bg-primary/30 hover:bg-primary/30 dark:hover:bg-primary/40 transition-colors">
+                            Manage
+                        </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+
+</body></html>

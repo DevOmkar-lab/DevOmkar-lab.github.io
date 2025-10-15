@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Password Reset Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9311d4",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#1c1022",
+                        "foreground-light": "#1c1022",
+                        "foreground-dark": "#f7f6f8",
+                        "card-light": "#ffffff",
+                        "card-dark": "#2a1a33",
+                        "muted-light": "#6f6c72",
+                        "muted-dark": "#a09da3"
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .mandala-bg {
+            background-image:
+                radial-gradient(circle at 15% 15%, hsla(280, 70%, 95%, 0.5) 0%, transparent 20%),
+                radial-gradient(circle at 85% 85%, hsla(280, 70%, 95%, 0.5) 0%, transparent 20%),
+                radial-gradient(circle at 85% 15%, hsla(280, 70%, 95%, 0.5) 0%, transparent 20%),
+                radial-gradient(circle at 15% 85%, hsla(280, 70%, 95%, 0.5) 0%, transparent 20%);
+        }
+        .dark .mandala-bg {
+            background-image:
+                radial-gradient(circle at 15% 15%, hsla(280, 30%, 20%, 0.5) 0%, transparent 20%),
+                radial-gradient(circle at 85% 85%, hsla(280, 30%, 20%, 0.5) 0%, transparent 20%),
+                radial-gradient(circle at 85% 15%, hsla(280, 30%, 20%, 0.5) 0%, transparent 20%),
+                radial-gradient(circle at 15% 85%, hsla(280, 30%, 20%, 0.5) 0%, transparent 20%);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center bg-background-light dark:bg-background-dark mandala-bg p-4">
+<div class="w-full max-w-md">
+<div class="mb-8 text-center">
+<div class="inline-block p-3 bg-primary/10 dark:bg-primary/20 rounded-full">
+<svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-2xl font-bold mt-2 text-foreground-light dark:text-foreground-dark">Mudra App</h1>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-xl shadow-lg p-8 text-center">
+<div class="mb-6 flex justify-center">
+<div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 dark:bg-primary/20">
+<svg class="h-8 w-8 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+<h2 class="text-2xl font-bold text-foreground-light dark:text-foreground-dark mb-2">Password Reset</h2>
+<p class="text-muted-light dark:text-muted-dark mb-6">Your password has been successfully reset. You can now use your new password to sign in.</p>
+            <a class="block w-full rounded-lg bg-primary px-4 py-3 text-sm font-bold text-white shadow-lg transition-transform duration-200 hover:scale-105" href="../sign_in_-_centered_card_1/code.html">
+                    Back to Sign In
+                </a>
+</div>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NatyaMudra - Logout Confirmation</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9311d4",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#1c1022",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .group:hover .group-hover\:block {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-neutral-800 dark:text-neutral-200">
+<div class="flex flex-col min-h-screen">
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20 border-b border-primary/20">
+<a class="flex items-center gap-3" href="#">
+<svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path></svg>
+<span class="text-2xl font-bold text-neutral-900 dark:text-white">NatyaMudra</span>
+</a>
+<div class="hidden lg:flex items-center space-x-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Mudra</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Practice</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="../contact_us/code.html">Contact</a>
+</div>
+<div class="relative group">
+<button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-10 w-10 border-2 border-primary/50" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRpHPsuzX51tEOldE9XJyOscOyc5PC-yDy5Z1caAbn7DMBf6--tJQG5JiNCFdKVUiG8bVgsZazmIaCQiP-RteFp3nHaDDRADQTAjJ2GMe4BANhli486HG5JFCI4T7t5OKPY9t6UbsnS37azgrKlX0CZyBNLRgSrLtp7VD4FJfBGZI3s4998otaa-XMfkOSTYOufW4mx0rLM8UUUwdcyae1JTqMzvDPWgEvPOYFVm5KtWppoVvxNS8VvBGC29yntnQiV2eEgabZwTY");'></div>
+</button>
+<div class="hidden group-hover:block absolute right-0 mt-2 w-48 bg-background-light dark:bg-background-dark border border-primary/20 rounded-lg shadow-xl py-1">
+<a class="block px-4 py-2 text-sm text-neutral-800 dark:text-neutral-200 hover:bg-primary/10" href="../user_profile/code.html">Profile</a>
+<a class="block px-4 py-2 text-sm text-neutral-800 dark:text-neutral-200 hover:bg-primary/10" href="#">Logout</a>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<main class="flex-grow flex items-center justify-center">
+<div class="max-w-md w-full text-center p-8 space-y-8">
+<div class="space-y-4">
+<h1 class="text-4xl font-bold tracking-tight text-neutral-900 dark:text-white">Logout Confirmation</h1>
+<p class="text-neutral-600 dark:text-neutral-400">Are you sure you want to log out of your account?</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="w-full flex items-center justify-center px-8 py-3 border border-primary/30 text-base font-medium rounded-lg text-neutral-800 dark:text-neutral-200 bg-transparent hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/50 transition-colors">
+                            Cancel
+                        </button>
+<button class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+                            Logout
+                        </button>
+</div>
+</div>
+</main>
+</div>
+<script>
+  document.querySelector('button.bg-primary').addEventListener('click', () => {
+    // Clear login data
+    localStorage.removeItem('isLoggedIn');
+    localStorage.setItem('practiceLocked', 'true');
+    localStorage.setItem('mudraLocked', 'true');
+    
+    // Redirect to home
+    window.location.href = 'index.html';
+  });
+
+  // Cancel button logic
+  document.querySelector('button.border-primary\\/30').addEventListener('click', () => {
+    window.history.back();
+  });
+</script>
+
+
+</body></html>

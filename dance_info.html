@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NatyaMudra - Bharatanatyam</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&amp;family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#9311d4",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#1c1022",
+                    },
+                    fontFamily: {
+                        display: ["Epilogue", "sans-serif"],
+                        serif: ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        lg: "1rem",
+                        xl: "1.5rem",
+                        full: "9999px"
+                    },
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .bg-pattern {
+                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239311d4' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+        }
+    </style>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#1C1022] dark:text-[#F7F6F8]">
+<div class="flex min-h-screen w-full flex-col bg-pattern">
+<header class="sticky top-0 z-10 border-b border-primary/20 bg-background-light/80 px-4 py-3 backdrop-blur-sm dark:bg-background-dark/80 sm:px-10">
+<div class="mx-auto flex max-w-7xl items-center justify-between">
+<div class="flex items-center gap-4">
+<svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+</svg>
+<h1 class="text-xl font-bold">NatyaMudra</h1>
+</div>
+<nav class="hidden items-center gap-8 md:flex">
+<a class="text-sm font-medium hover:text-primary" href="#">Home</a>
+<a class="text-sm font-medium hover:text-primary" href="#">About</a>
+<a class="text-sm font-medium hover:text-primary" href="#">Mudra</a>
+<a class="text-sm font-medium hover:text-primary" href="#">Practice</a>
+<a class="text-sm font-medium hover:text-primary" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-2">
+<div class="relative group">
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30">
+<span class="material-symbols-outlined"> person </span>
+</button>
+<div class="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white dark:bg-background-dark shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden group-hover:block">
+<div class="py-1">
+<a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-primary/20" href="../user_profile/code.html">Profile</a>
+<a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-primary/20" href="#">Settings</a>
+<a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-primary/20" href="../logout_confirmation/code.html" onclick="(function(){try{localStorage.removeItem('isLoggedIn');localStorage.removeItem('user');sessionStorage.clear();}catch(e){};window.location.href='../logout_confirmation/code.html';return false;})();">Logout</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+<div class="mb-8">
+<a class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline" href="index.html">
+<span class="material-symbols-outlined"> arrow_back </span> Back to Dance Form Exploration
+                    </a>
+</div>
+<div class="flex flex-col gap-16 lg:gap-24">
+<section class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
+<div class="order-2 lg:order-1">
+<h2 class="font-serif text-5xl font-bold tracking-tight text-primary sm:text-7xl">Bharatanatyam</h2>
+<p class="mt-4 text-lg leading-relaxed text-[#1C1022]/80 dark:text-[#F7F6F8]/80">
+                                A major form of Indian classical dance that originated in Tamil Nadu, known for its grace, purity, tenderness, and sculpturesque poses.
+                            </p>
+</div>
+<div class="order-1 lg:order-2 group">
+<div class="relative aspect-square w-full overflow-hidden rounded-xl shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-primary/20">
+<img alt="Bharatanatyam dancer" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5jhxnw09TxyWFgZx1xxrY2j0jWmaDtAIOZGNfCc117l_6ze5SCEj2g06pEgciEfXGTJEGFXWdoFAJQN--viK69bb0VcZV9qzK12C5XiofEDLt7NwAbQiCoHtCVPji_tdVYoCfsdyNow0__JFS_kiKSYQUg4gPdzsBzpnzV7_THxRhw22Ze5h6E0S66mWOWh8Z_qld5W7C5adsyEYWzYKG3a44aVmJ5Phw-h2OQ914OzinWh7nd-hHu0Ox_-bGfM-YLgjMWeGsHu0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 text-white">
+<h3 class="text-2xl font-bold">Sacred Dance</h3>
+<p class="text-sm">Tamil Nadu, India</p>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-12">
+<div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+<div class="md:col-span-1">
+<h3 class="text-2xl font-bold font-serif text-primary">Origin</h3>
+<p class="mt-2 text-sm text-[#1C1022]/60 dark:text-[#F7F6F8]/60">The roots of a timeless tradition.</p>
+</div>
+<div class="md:col-span-2 space-y-8">
+<p class="text-lg leading-relaxed text-[#1C1022]/80 dark:text-[#F7F6F8]/80">
+                                Bharatanatyam is a major form of Indian classical dance that originated in Tamil Nadu. Historically, Bharatanatyam was performed by female dancers in temples and later in courts. It is known for its grace, purity, tenderness, and sculpturesque poses. The dance is accompanied by Carnatic music and involves intricate rhythmic patterns and expressive storytelling.
+                            </p>
+<div class="relative">
+<div aria-hidden="true" class="absolute left-4 top-0 h-full w-0.5 bg-primary/20"></div>
+<div class="relative pl-10 mb-8 group">
+<div class="absolute left-4 top-2 h-4 w-4 transform -translate-x-1/2 rounded-full bg-primary ring-4 ring-background-light dark:ring-background-dark transition-transform duration-300 group-hover:scale-125"></div>
+<div class="rounded-lg bg-background-light dark:bg-background-dark/50 border border-primary/10 p-4 transition-all duration-300 group-hover:shadow-lg group-hover:border-primary/30">
+<p class="font-bold text-primary">c. 2nd Century BCE</p>
+<h4 class="font-serif text-lg font-bold mt-1">Natyasastra</h4>
+<p class="text-sm text-[#1C1022]/60 dark:text-[#F7F6F8]/60 mt-1">Sage Bharata Muni writes the Natyasastra, a comprehensive treatise on performing arts, laying the theoretical foundation for Indian classical dance forms.</p>
+</div>
+</div>
+<div class="relative pl-10 mb-8 group">
+<div class="absolute left-4 top-2 h-4 w-4 transform -translate-x-1/2 rounded-full bg-primary ring-4 ring-background-light dark:ring-background-dark transition-transform duration-300 group-hover:scale-125"></div>
+<div class="rounded-lg bg-background-light dark:bg-background-dark/50 border border-primary/10 p-4 transition-all duration-300 group-hover:shadow-lg group-hover:border-primary/30">
+<p class="font-bold text-primary">Medieval Period</p>
+<h4 class="font-serif text-lg font-bold mt-1">Temple Dancers (Devadasis)</h4>
+<p class="text-sm text-[#1C1022]/60 dark:text-[#F7F6F8]/60 mt-1">The dance form, then known as Sadir, is primarily performed by Devadasis in the temples and courts of Southern India, particularly in Tamil Nadu.</p>
+</div>
+</div>
+<div class="relative pl-10 mb-8 group">
+<div class="absolute left-4 top-2 h-4 w-4 transform -translate-x-1/2 rounded-full bg-primary ring-4 ring-background-light dark:ring-background-dark transition-transform duration-300 group-hover:scale-125"></div>
+<div class="rounded-lg bg-background-light dark:bg-background-dark/50 border border-primary/10 p-4 transition-all duration-300 group-hover:shadow-lg group-hover:border-primary/30">
+<p class="font-bold text-primary">Early 20th Century</p>
+<h4 class="font-serif text-lg font-bold mt-1">Revival Movement</h4>
+<p class="text-sm text-[#1C1022]/60 dark:text-[#F7F6F8]/60 mt-1">Figures like E. Krishna Iyer and Rukmini Devi Arundale lead a movement to revive and reform the dance, bringing it from temples to the public stage and renaming it 'Bharatanatyam'.</p>
+</div>
+</div>
+<div class="relative pl-10 group">
+<div class="absolute left-4 top-2 h-4 w-4 transform -translate-x-1/2 rounded-full bg-primary ring-4 ring-background-light dark:ring-background-dark transition-transform duration-300 group-hover:scale-125"></div>
+<div class="rounded-lg bg-background-light dark:bg-background-dark/50 border border-primary/10 p-4 transition-all duration-300 group-hover:shadow-lg group-hover:border-primary/30">
+<p class="font-bold text-primary">Mid-20th Century to Present</p>
+<h4 class="font-serif text-lg font-bold mt-1">Global Recognition</h4>
+<p class="text-sm text-[#1C1022]/60 dark:text-[#F7F6F8]/60 mt-1">Bharatanatyam gains international acclaim and is practiced and performed by artists worldwide, evolving with contemporary interpretations while preserving its traditional core.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="border-primary/20"/>
+<div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+<div class="md:col-span-1">
+<h3 class="text-2xl font-bold font-serif text-primary">Traditional Meaning</h3>
+<p class="mt-2 text-sm text-[#1C1022]/60 dark:text-[#F7F6F8]/60">Symbolism woven into every movement.</p>
+</div>
+<div class="md:col-span-2">
+<p class="text-lg leading-relaxed text-[#1C1022]/80 dark:text-[#F7F6F8]/80">
+                                Bharatanatyam is deeply rooted in Hindu mythology and spirituality. The dance often depicts stories from the Puranas and other religious texts, conveying themes of devotion, love, and the triumph of good over evil. The mudras (hand gestures) and facial expressions are used to communicate the narrative and emotional content of the dance.
+                            </p>
+</div>
+</div>
+<hr class="border-primary/20"/>
+<div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+<div class="md:col-span-1">
+<h3 class="text-2xl font-bold font-serif text-primary">Performance Context</h3>
+<p class="mt-2 text-sm text-[#1C1022]/60 dark:text-[#F7F6F8]/60">From sacred temples to global stages.</p>
+</div>
+<div class="md:col-span-2">
+<p class="text-lg leading-relaxed text-[#1C1022]/80 dark:text-[#F7F6F8]/80">
+                                Bharatanatyam is traditionally performed in temples during festivals and religious ceremonies. Today, it is also performed on stage in cultural events and concerts worldwide. The dance is typically performed solo by female dancers, although group performances are also common. The performance includes various elements such as Nritta (pure dance), Nritya (expressive dance), and Natya (dramatic dance).
+                            </p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer class="mt-auto border-t border-primary/20 bg-background-light dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-4 py-6 text-center sm:px-6 lg:px-8">
+<p class="text-sm text-[#1C1022]/60 dark:text-[#F7F6F8]/60">© 2024 NatyaMudra. All rights reserved.</p>
+</div>
+</footer>
+</div>
+
+</body></html>
